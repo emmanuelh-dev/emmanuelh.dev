@@ -1,6 +1,6 @@
 ---
 name: Emmanuel Hernandez
-avatar: /static/images/avatar.png
+avatar: /static/images/me.jpg
 occupation: FrontEnd Developer
 company:
 email: e805177@gmail.com
