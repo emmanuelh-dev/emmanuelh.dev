@@ -1,16 +1,16 @@
 ---
-name: Tails Azimuth
+name: Emmanuel Hernandez
 avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
-linkedin: https://www.linkedin.com
-github: https://github.com
+occupation: FrontEnd Developer
+company:
+email: e805177@gmail.com
+twitter: https://twitter.com/emmanuelhdev
+linkedin: https://www.linkedin.com/in/emmanuelhdev
+github: https://github.com/emmanuelh-dev
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+My name is Emmanuel Hernandez, and I am a passionate frontend developer with over 2 years of experience.
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
+My expertise lies in crafting seamless user experiences that captivate and delight. I thoroughly enjoy working on projects that involve enhancing the user interface and creating intuitive designs. Constantly driven by my enthusiasm for user-centric development, I actively seek out and embrace new technologies that can aid me in achieving this goal.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+My commitment to continuous learning allows me to stay at the forefront of the industry, enabling me to make significant improvements in my field. As a frontend developer, I take pride in my ability to blend creativity with technical proficiency to bring ideas to life and make a positive impact on users' digital journeys.
