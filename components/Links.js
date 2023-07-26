@@ -38,7 +38,7 @@ const enlaces = [
 const Emmanuel = () => {
   return (
     <div className="">
-      <div className="mx-auto max-w-xl">
+      <div className="mx-auto md:hidden">
         <Enlace enlaces={enlaces} />
       </div>
     </div>

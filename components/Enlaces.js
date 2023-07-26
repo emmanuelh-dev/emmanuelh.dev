@@ -3,7 +3,7 @@ import { FaInstagram, FaTiktok, FaTwitter, FaFacebook } from 'react-icons/fa'
 
 const EnlacesBloque = ({ enlaces }) => {
   return (
-    <div className="flex flex-col justify-center ">
+    <div className="flex flex-wrap justify-center gap-2">
       {enlaces.map((enlace, index) => {
         const Icono = enlace.icono
         const bgColor = `bg-${enlace.color}-500`
@@ -14,7 +14,7 @@ const EnlacesBloque = ({ enlaces }) => {
             href={enlace.link}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${bgColor} ${hoverBgColor} m-2 rounded py-3 px-4 font-bold text-white`}
+            className={`${bgColor} ${hoverBgColor} my-3 block w-full rounded py-4 px-4 font-bold text-white`}
             style={{ backgroundColor: enlace.color }}
           >
             <Icono className="mr-2 inline" />

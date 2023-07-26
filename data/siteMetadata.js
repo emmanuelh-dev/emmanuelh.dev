@@ -2,7 +2,7 @@ const siteMetadata = {
   title: 'Emmanuel Hernandez | emmanuelh.dev',
   author: 'Emmanuel H',
   headerTitle: 'Emmanuel Hernandez',
-  description: 'My personal site, social and professional',
+  description: 'Stay curious, stay inspired, and keep dreaming big!',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://emmanuelh.dev',
