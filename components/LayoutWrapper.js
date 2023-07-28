@@ -1,11 +1,11 @@
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/logo.svg'
 import Link from './Link'
 import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
+import Image from 'next/image'
 
 const LayoutWrapper = ({ children }) => {
   return (
@@ -13,13 +13,23 @@ const LayoutWrapper = ({ children }) => {
       <div className="flex h-screen flex-col justify-between">
         <header className="flex items-center justify-between py-10">
           <div>
-            <Link href="/" aria-label={siteMetadata.headerTitle}>
-              <div className="flex items-center justify-between">
-                <div className="mr-3">
-                  <Logo />
+            <Link
+              href="/"
+              aria-label={siteMetadata.headerTitle}
+              className="flex items-center justify-between"
+            >
+              <div className="flex items-center justify-between gap-2">
+                <div className="">
+                  <Image
+                    width={50}
+                    height={50}
+                    objectFit="cover"
+                    src={'/static/images/logo.png'}
+                    alt=""
+                  />
                 </div>
                 {typeof siteMetadata.headerTitle === 'string' ? (
-                  <div className="hidden h-6 text-2xl font-semibold sm:block">
+                  <div className="hidden text-2xl font-semibold sm:block">
                     {siteMetadata.headerTitle}
                   </div>
                 ) : (
