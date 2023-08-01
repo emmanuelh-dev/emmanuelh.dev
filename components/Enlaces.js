@@ -14,7 +14,7 @@ const EnlacesBloque = ({ enlaces }) => {
             href={enlace.link}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${bgColor} ${hoverBgColor} my-3 block w-full rounded py-4 px-4 font-bold text-white`}
+            className={`${bgColor} ${hoverBgColor} my-3 block w-full rounded px-4 py-4 font-bold text-white`}
             style={{ backgroundColor: enlace.color }}
           >
             <Icono className="mr-2 inline" />
