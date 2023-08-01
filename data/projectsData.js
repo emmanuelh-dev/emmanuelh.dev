@@ -12,6 +12,12 @@ const projectsData = [
     imgSrc: '/static/images/creative.svg',
     href: 'https://bysmax.com',
   },
+  {
+    title: 'LA CAFETERIA | STARTER',
+    description: `Discover our restaurant template crafted with Tailwind CSS and Gatsby. Browsing our menu is now a breeze, making the dining experience hassle-free and enjoyable.`,
+    imgSrc: '/static/images/gallery.png',
+    href: 'https://la-cafeteria-with-tailwindcss.vercel.app/',
+  },
 ]
 
 export default projectsData
