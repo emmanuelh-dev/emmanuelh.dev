@@ -77,7 +77,3 @@ Color gradients can add a visually appealing touch to your web interfaces and ca
 I hope this article has been helpful to you and inspires you to experiment with color gradients in your projects using Tailwind CSS and Markdown.
 
 Happy coding!
-
----
-
-Feel free to adjust the text and images according to your specific needs, and add more examples or details to enrich the content. Good luck with your blog!
