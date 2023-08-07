@@ -15,7 +15,7 @@ Sure! Here's the blog on how to generate color gradients in Tailwind CSS using M
 
 # How to Generate Color Gradients in Tailwind CSS
 
-![Tailwind CSS Gradient](https://example.com/path-to-image.jpg)
+<div className="bg-gradient-to-r from-red-500 to-orange-500 py-10 flex justify-center items-center rounded-lg font-bold text-4xl">Hello World!</div>
 
 **Introduction**
 
