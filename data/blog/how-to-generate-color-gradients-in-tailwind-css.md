@@ -9,10 +9,6 @@ layout: PostLayout
 canonicalUrl: how-to-crate-color-gradient-in-tailwind-css
 ---
 
-Sure! Here's the blog on how to generate color gradients in Tailwind CSS using Markdown:
-
----
-
 # How to Generate Color Gradients in Tailwind CSS
 
 <div className="bg-gradient-to-r from-red-500 to-orange-500 py-10 flex justify-center items-center rounded-lg font-bold text-4xl">Hello World!</div>
