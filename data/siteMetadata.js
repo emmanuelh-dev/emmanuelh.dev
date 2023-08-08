@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: 'emmanuelh.dev',
+  title: 'emmanuelh.dev blog',
   author: 'Emmanuel H',
   headerTitle: 'Emmanuel Hernandez',
   description: 'Stay curious, stay inspired, and keep dreaming big!',
