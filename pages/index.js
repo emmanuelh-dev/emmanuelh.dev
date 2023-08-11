@@ -6,7 +6,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import Links from '@/components/Links'
 import NewsletterForm from '@/components/NewsletterForm'
-
+import Image from 'next/image'
 const MAX_DISPLAY = 5
 
 export async function getStaticProps() {
@@ -19,16 +19,22 @@ export default function Home({ posts }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Hello world!
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {siteMetadata.description}
-          </p>
-        </div>
-        <Links />
+      <div className="divide-y divide-gray-200 dark:divide-gray-700 ">
+        <main className="">
+          <div className="flex w-full items-center justify-center max-sm:flex-col-reverse lg:py-56">
+            <div className="lg:w-3/5">
+              <h1 className="text-4xl font-bold lg:text-6xl">{siteMetadata.description}</h1>
+              <h3 className="my-8 text-xl">Emmanuel Hernandez | Software Dev</h3>
+            </div>
+            <Image
+              width={400}
+              height={400}
+              objectFit="cover"
+              src={'/static/designer-d0.svg'}
+              alt=""
+            />
+          </div>
+        </main>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
