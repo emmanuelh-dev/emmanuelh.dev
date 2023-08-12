@@ -1,7 +1,7 @@
 ---
 title: How to Generate Color Gradients in Tailwind CSS
 date: '2023-07-26'
-tags: []
+tags: [tailwind, guide, images]
 draft: false
 summary: Tailwind CSS is a popular design framework that offers a wide range of utilities to streamline web interface development. Among its many features, one of the most exciting capabilities is creating eye-catching and attractive color gradients. In this article, we'll learn how to generate color gradients using Tailwind CSS and combine it with the power of Markdown to create visually appealing and effective interfaces.
 images: []

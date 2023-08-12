@@ -4,7 +4,6 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
-import Links from '@/components/Links'
 import NewsletterForm from '@/components/NewsletterForm'
 import Image from 'next/image'
 const MAX_DISPLAY = 5
@@ -21,7 +20,7 @@ export default function Home({ posts }) {
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700 ">
         <main className="">
-          <div className="flex w-full items-center justify-center max-sm:flex-col-reverse lg:py-56">
+          <div className="max-sm:flex-col-reverse flex w-full items-center justify-center  lg:py-56">
             <div className="lg:w-3/5">
               <h1 className="text-4xl font-bold lg:text-6xl">{siteMetadata.description}</h1>
               <h3 className="my-8 text-xl">Emmanuel Hernandez | Software Dev</h3>
