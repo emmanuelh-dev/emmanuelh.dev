@@ -26,9 +26,9 @@ export default function Home({ posts }) {
             <div className="lg:w-3/5">
               <h1 className="text-4xl font-bold lg:text-6xl">{siteMetadata.description}</h1>
               <div className="flex items-center">
-                <h3 className="my-8 text-xl">Emmanuel Hernandez | Dev</h3>{' '}
+                <h3 className="my-8 text-xl">Emmanuel Hernandez | Dev</h3>
                 <a
-                  href="/resume.pdf"
+                  href="/Resume.pdf"
                   download
                   className="bg-primary-700 text-white py-2 px-6 rounded-lg ml-4"
                 >
