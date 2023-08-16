@@ -6,6 +6,8 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import NewsletterForm from '@/components/NewsletterForm'
 import Image from 'next/image'
+import Experience from '@/components/Experience'
+import { BsDownload } from 'react-icons/bs'
 const MAX_DISPLAY = 5
 
 export async function getStaticProps() {
@@ -18,12 +20,21 @@ export default function Home({ posts }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="divide-y divide-gray-200 dark:divide-gray-700 ">
+      <div className=" divide-gray-200 dark:divide-gray-700 ">
         <main className="">
           <div className="max-sm:flex-col-reverse flex w-full items-center justify-center  lg:py-56">
             <div className="lg:w-3/5">
               <h1 className="text-4xl font-bold lg:text-6xl">{siteMetadata.description}</h1>
-              <h3 className="my-8 text-xl">Emmanuel Hernandez | Software Dev</h3>
+              <div className="flex items-center">
+                <h3 className="my-8 text-xl">Emmanuel Hernandez | Dev</h3>{' '}
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="bg-primary-700 text-white py-2 px-6 rounded-lg ml-4"
+                >
+                  <BsDownload />
+                </a>
+              </div>
             </div>
             <Image
               width={400}
@@ -34,6 +45,7 @@ export default function Home({ posts }) {
             />
           </div>
         </main>
+        <Experience />
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
@@ -97,11 +109,11 @@ export default function Home({ posts }) {
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter.provider !== '' && (
+      {/* {siteMetadata.newsletter.provider !== '' && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
         </div>
-      )}
+      )} */}
     </>
   )
 }
