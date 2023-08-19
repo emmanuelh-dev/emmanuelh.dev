@@ -18,6 +18,12 @@ const projectsData = [
     imgSrc: '/static/images/gallery.png',
     href: 'https://la-cafeteria-with-tailwindcss.vercel.app/',
   },
+  {
+    title: 'Drinks Browser',
+    description: `Search and make coctels and drinks with ai and more.`,
+    imgSrc: '/static/images/drink.jpg',
+    href: 'https://drinksbrowser.vercel.app',
+  },
 ]
 
 export default projectsData
