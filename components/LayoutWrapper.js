@@ -6,7 +6,7 @@ import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import Image from 'next/image'
-
+import { BsGithub } from 'react-icons/bs'
 const LayoutWrapper = ({ children }) => {
   return (
     <SectionContainer>
@@ -50,6 +50,9 @@ const LayoutWrapper = ({ children }) => {
                 </Link>
               ))}
             </div>
+            <a href="https://github.com/emmanuelh-dev" className="text-xl">
+              <BsGithub />
+            </a>
             <ThemeSwitch />
             <MobileNav />
           </div>
