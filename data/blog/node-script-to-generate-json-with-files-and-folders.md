@@ -1,5 +1,5 @@
 ---
-title: Example of a markdown file with code blocks and syntax highlighting
+title: 'How create a list directory with node filesystem'
 date: '2023-08-21'
 tags: ['node', 'code', 'js']
 draft: false
