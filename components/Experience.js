@@ -2,9 +2,15 @@ import React from 'react'
 
 const experience = [
   {
+    title: 'Gonzher Solutions',
+    job: 'Full Stack Developer',
+    date: 'Oct 2023 - Present',
+    skills: ['NodeJS', 'Python', 'JavaScript', 'Git', 'Flutter'],
+  },
+  {
     title: 'ConnectIT',
     job: 'Developer',
-    date: 'May 2023 - Present',
+    date: 'May 2023 - Sep 2023',
     skills: ['Nodejs', 'JS', 'Vue', 'Vuetify', 'Git', 'UX', 'FastAPI', 'Python'],
   },
   {
@@ -23,7 +29,7 @@ const Experience = () => {
           Experience
         </h1>
       </div>
-      <section className="md:ml-12">
+      <section className="ml-4">
         <ol class="relative border-l">
           {experience.map((company) => (
             <li class="mb-10 ml-4" key={company.title}>
