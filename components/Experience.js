@@ -8,6 +8,12 @@ const experience = [
     skills: ['NodeJS', 'Python', 'JavaScript', 'Git', 'Flutter'],
   },
   {
+    title: 'Little Minds',
+    job: 'Robotic Professor',
+    date: 'Oct 2023 - Present',
+    skills: [],
+  },
+  {
     title: 'ConnectIT',
     job: 'Developer',
     date: 'May 2023 - Sep 2023',
