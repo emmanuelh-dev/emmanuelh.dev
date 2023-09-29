@@ -41,8 +41,8 @@ const Experience = () => {
             <li class="mb-10 ml-4" key={company.title}>
               <div class="border-tert bg-tert absolute w-3 h-3 rounded-full mt-1.5 -left-1.5 border bg-white"></div>
               <time class="mb-1 font-normal leading-none opacity-50">{company.date}</time>
-              <h3 class="text-lg font-semibold">{`${company.job}-${company.title}`}</h3>
-              <ul class="mb-4 font-normal opacity-75 text-sm">
+              <h3 class="text-xl font-bold">{`${company.job} - ${company.title}`}</h3>
+              <ul class="mb-4 font-normal opacity-75">
                 {company.skills.map((skill) => (
                   <li key={skill} className=" list-disc ml-4">
                     {skill}
