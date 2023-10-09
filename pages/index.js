@@ -30,7 +30,7 @@ export default function Home({ posts }) {
                 <a
                   href="/Resume.pdf"
                   download
-                  className="bg-primary-700 text-white py-2 px-6 rounded-lg ml-4"
+                  className="bg-neutral-950 text-white dark:bg-neutral-100 dark:text-black py-2 px-6 rounded-lg ml-4"
                 >
                   <BsDownload />
                 </a>

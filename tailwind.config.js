@@ -918,7 +918,7 @@ module.exports = {
         sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.blue,
+        primary: colors.neutral,
         gray: colors.neutral,
       },
       typography: (theme) => ({
