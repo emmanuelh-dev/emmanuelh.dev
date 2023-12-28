@@ -13,6 +13,12 @@ const projectsData = [
     href: 'https://bysmax.com',
   },
   {
+    title: 'VETADMIN',
+    description: `VetAdmin Pro is a veterinary patient management software crafted with HTML, CSS, and JavaScript. It employs IndexDB as a local database for storing patient information.`,
+    imgSrc: '/static/images/vetadmin.png',
+    href: 'https://vetadmin.emmanuelh.dev/',
+  },
+  {
     title: 'LA CAFETERIA | STARTER',
     description: `Discover our restaurant template crafted with Tailwind CSS and Gatsby. Browsing our menu is now a breeze, making the dining experience hassle-free and enjoyable.`,
     imgSrc: '/static/images/gallery.png',
