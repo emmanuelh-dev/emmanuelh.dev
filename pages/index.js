@@ -22,7 +22,7 @@ export default function Home({ posts }) {
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className=" divide-gray-200 dark:divide-gray-700 ">
         <main className="">
-          <div className="max-sm:flex-col-reverse flex w-full items-center justify-center  lg:py-56">
+          <div className="flex w-full items-center justify-center max-sm:flex-col-reverse  lg:py-56">
             <div className="lg:w-3/5">
               <h1 className="text-4xl font-bold lg:text-6xl">{siteMetadata.description}</h1>
               <div className="flex items-center">
@@ -30,7 +30,7 @@ export default function Home({ posts }) {
                 <a
                   href="/Resume.pdf"
                   download
-                  className="bg-neutral-950 text-white dark:bg-neutral-100 dark:text-black py-2 px-6 rounded-lg ml-4"
+                  className="ml-4 rounded-lg bg-neutral-950 px-6 py-2 text-white dark:bg-neutral-100 dark:text-black"
                 >
                   <BsDownload />
                 </a>
