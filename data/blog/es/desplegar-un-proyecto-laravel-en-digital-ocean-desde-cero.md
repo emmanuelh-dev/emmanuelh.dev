@@ -10,7 +10,7 @@ summary: 'Aprende a desplegar una aplicación Laravel desde cero en un servidor 
 
 1. **Requerimientos**
 
-   - VPS (Linode, Digital Ocean, EC2, etc.)
+   - VPS (Linode, Digital Ocean, EC2, etc. Nosotros usaremos digital ocean)
    - No se requieren conocimientos básicos
    - Tu proyecto, claro esta.
 
@@ -23,14 +23,14 @@ summary: 'Aprende a desplegar una aplicación Laravel desde cero en un servidor 
    - GitHub
    - Añadir un dominio a nuestra web
 
-3. **Crear un proyecto Laravel**
+3. **Crea un proyecto Laravel (Claro, si no lo tienes)**
 
-   - Ejecutar el comando: `composer create-project laravel/laravel youtube-laravel-deploy`
+   - Ejecuta el comando: `composer create-project laravel/laravel youtube-laravel-deploy`
 
-4. **Crear tu VPS**
+4. **Crea tu VPS**
 
-   - Linode: https://www.linode.com/lp/refer/?r=aa... (configuración)
-   - Ejecutar los siguientes comandos:
+   - [Digital Ocean](https://m.do.co/c/5ac4ff8a5bab) (Si usas el link, obtienes 200 dolares en credito)
+   - Ejecuta los siguientes comandos:
      ```
      sudo apt update
      sudo apt upgrade
@@ -47,22 +47,22 @@ summary: 'Aprende a desplegar una aplicación Laravel desde cero en un servidor 
      ```
      sudo apt install php8.2-fpm php-mysql
      ```
-   - Instalar Composer:
+   - Instala Composer:
      ```
      curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
      ```
    - Consulta el sitio web oficial para más detalles: https://getcomposer.org/download/
 
-6. **Instalar MySQL**
+6. **Instala MySQL**
 
-   - Ejecutar el comando:
+   - Ejecuta el comando:
      ```
      sudo apt install mysql-server
      ```
 
-7. **Crear un usuario MySQL**
+7. **Crea un usuario MySQL**
 
-   - Ejecutar los siguientes comandos:
+   - Ejecuta los siguientes comandos:
      ```
      CREATE USER 'neiderruiz'@'localhost' IDENTIFIED BY 'password123';
      GRANT ALL PRIVILEGES ON *.* TO 'neiderruiz'@'localhost';
@@ -76,22 +76,22 @@ summary: 'Aprende a desplegar una aplicación Laravel desde cero en un servidor 
 
 8. **Utilizar SCP para subir el proyecto**
 
-   - Ejecutar el siguiente comando:
+   - Ejecuta el siguiente comando:
      ```
      scp project.zip root@ip:/var/www/project
      ```
-   - En el servidor, instalar unzip:
+   - En el servidor, instala unzip:
      ```
      sudo apt install unzip
      ```
 
-9. **Clonar el proyecto desde GitHub**
+9. **Clona el proyecto desde GitHub**
 
-   - Ejecutar el siguiente comando:
+   - Ejecuta el siguiente comando:
      ```
      git clone https://github.com/neiderruiz/youtube...
      ```
-   - Instalar paquetes PHP adicionales:
+   - Instala paquetes PHP adicionales:
      ```
      sudo apt install zip unzip php-zip php-xml php-curl
      ```
@@ -133,16 +133,16 @@ summary: 'Aprende a desplegar una aplicación Laravel desde cero en un servidor 
 
 11. **Establecer permisos de carpetas**
 
-    - Ejecutar los siguientes comandos:
+    - Ejecuta los siguientes comandos:
       ```
       sudo chown -R www-data:www-data /var/www/
       sudo chmod -R 775 /var/www/youtube-laravel-deploy-basic/storage
       sudo chmod -R 775 /var/www/youtube-laravel-deploy-basic/bootstrap/cache
       ```
 
-12. **Generar una clave de aplicación y crear una base de datos**
+12. **Generar una clave de aplicación y crea una base de datos**
 
-    - Ejecutar los siguientes comandos:
+    - Ejecuta los siguientes comandos:
       ```
       php artisan key:generate
       create database youtube_laravel_deploy;
@@ -151,7 +151,7 @@ summary: 'Aprende a desplegar una aplicación Laravel desde cero en un servidor 
       ```
 
 13. **Añadir SSL (HTTPS)**
-    - Ejecutar los siguientes comandos:
+    - Ejecuta los siguientes comandos:
       ```
       sudo apt install certbot python3-certbot-nginx
       sudo certbot --nginx -d your.url.com
