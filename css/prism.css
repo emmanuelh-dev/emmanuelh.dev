@@ -6,6 +6,11 @@
  */
 
 /* Code title styles */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Krona+One&display=swap');
+
+.pre {
+  @apply font-mono text-sm;
+}
 .remark-code-title {
   @apply rounded-t bg-gray-700 px-5 py-3 font-mono text-sm font-bold text-gray-200;
 }
@@ -36,7 +41,7 @@
 }
 
 .line-number::before {
-  @apply mr-4 -ml-2 inline-block w-4 text-right text-gray-400;
+  @apply -ml-2 mr-4 inline-block w-4 text-right text-gray-400;
   content: attr(line);
 }
 
@@ -56,7 +61,7 @@
 }
 
 .token.punctuation {
-  color: rgb(199, 146, 234);
+  color: #f8f6ec;
 }
 
 .namespace {
@@ -70,13 +75,13 @@
 
 .token.symbol,
 .token.property {
-  color: rgb(128, 203, 196);
+  color: #e3275b;
 }
 
 .token.tag,
-.token.operator,
+.token,
 .token.keyword {
-  color: rgb(127, 219, 202);
+  color: #5cccea;
 }
 
 .token.boolean {
@@ -84,14 +89,14 @@
 }
 
 .token.number {
-  color: rgb(247, 140, 108);
+  color: #7c66e2;
 }
 
 .token.constant,
 .token.function,
 .token.builtin,
 .token.char {
-  color: rgb(130, 170, 255);
+  color: #a6e22e;
 }
 
 .token.selector,
@@ -102,7 +107,7 @@
 
 .token.attr-name,
 .token.inserted {
-  color: rgb(173, 219, 103);
+  color: #a6e22e;
   font-style: italic;
 }
 
@@ -111,19 +116,19 @@
 .token.entity,
 .language-css .token.string,
 .style .token.string {
-  color: rgb(173, 219, 103);
+  color: #e0d874;
 }
 
 .token.class-name,
 .token.atrule,
 .token.attr-value {
-  color: rgb(255, 203, 139);
+  color: #e0d874;
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: rgb(214, 222, 235);
+  color: #f8f6ec;
 }
 
 .token.important,
@@ -137,4 +142,23 @@
 
 .token.table {
   display: inline;
+}
+.token.keyword.control-flow {
+  color: #e3275b;
+}
+.token.class-name.known-class-name {
+  color: #59c2e2;
+}
+
+.token.keyword.module {
+  color: #e3275b;
+}
+.maybe-class-name {
+  color: #f8f6ec;
+}
+.token.operator {
+  color: #e3275b;
+}
+.token.parameter {
+  color: #f59421;
 }
