@@ -6,13 +6,13 @@ import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import Image from 'next/image'
-import { BsGithub } from 'react-icons/bs'
+import { BsGithub, BsLinkedin } from 'react-icons/bs'
 const LayoutWrapper = ({ children }) => {
   return (
     <SectionContainer>
       <div className="flex h-screen flex-col justify-between">
-        <header className="flex items-center justify-between py-10">
-          <div>
+        <header className="flex items-center justify-end py-10">
+          {/* <div>
             <Link
               href="/"
               aria-label={siteMetadata.headerTitle}
@@ -37,19 +37,22 @@ const LayoutWrapper = ({ children }) => {
                 )}
               </div>
             </Link>
-          </div>
-          <div className="flex items-center text-base leading-5">
-            <div className="hidden sm:block">
+          </div> */}
+          <div className="flex items-center gap-4 text-base leading-5">
+            <div className="hidden gap-4 sm:flex">
               {headerNavLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                  className="font-medium text-gray-900 dark:text-gray-100"
                 >
                   {link.title}
                 </Link>
               ))}
             </div>
+            <a href="https://www.linkedin.com/in/emmanuelhdev/" className="text-xl">
+              <BsLinkedin />
+            </a>
             <a href="https://github.com/emmanuelh-dev" className="text-xl">
               <BsGithub />
             </a>
