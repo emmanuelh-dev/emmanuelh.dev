@@ -69,7 +69,7 @@ const PostList: React.FC<PostListProps> = ({ posts, locale, t, maxDisplay }) => 
                     ))}
                   </ul>
                   <Button asChild className="w-full mt-auto">
-                    <Link href={`/blog/${post.slug}`}>
+                    <Link href={`${locale}/blog/${post.slug}`}>
                       <span className="sr-only">Leer más sobre {post.title}</span>
                       <span aria-hidden="true">Leer más</span> <ArrowRightIcon className="ml-2 w-4 h-4" aria-hidden="true" />
                     </Link>
