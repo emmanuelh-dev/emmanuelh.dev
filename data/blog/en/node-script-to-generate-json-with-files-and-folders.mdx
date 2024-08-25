@@ -1,0 +1,87 @@
+---
+title: 'How create a list directory with node filesystem'
+date: '2023-08-21'
+tags: ['node', 'code', 'js']
+draft: false
+language: en
+summary: We'll explore a piece of code that demonstrates how to list directory contents, save them to a JSON file, and store them in memory.
+---
+
+**Unlocking the Power of File Operations in Node.js: Exploring a Practical Example**
+
+In the world of programming, managing files and directories is a fundamental task. Whether you're organizing data or dealing with user-uploaded files, having a grasp of file operations is crucial. In this article, we'll dive into a practical example of file and directory manipulation using Node.js. We'll explore a piece of code that demonstrates how to list directory contents, save them to a JSON file, and store them in memory.
+
+### Introduction to the Code
+
+Let's take a look at the code snippet provided:
+
+```javascript
+const fs = require('fs')
+
+function listDirectory(path) {
+  try {
+    return fs.readdirSync(path)
+  } catch (error) {
+    return error.message
+  }
+}
+
+function saveToJson(data, filename) {
+  try {
+    fs.writeFileSync(filename, JSON.stringify(data, null, 4))
+    return true
+  } catch (error) {
+    return error.message
+  }
+}
+
+function main() {
+  const directoryPath = '/home/emmanuel/Desktop/Curso-JS-Moderno' // Replace with a directory path in your case
+  const contents = listDirectory(directoryPath)
+
+  if (Array.isArray(contents)) {
+    console.log('Directory Contents:', contents)
+
+    // Option 1: Save to a JSON file
+    const jsonFilename = 'directory_contents.json'
+    if (saveToJson(contents, jsonFilename)) {
+      console.log(`Contents saved to '${jsonFilename}'`)
+    } else {
+      console.log('Error saving to JSON.')
+    }
+
+    // Option 2: Store in an in-memory array
+    const inMemoryArray = contents
+    console.log('Contents in memory:', inMemoryArray)
+  } else {
+    console.log('Error:', contents)
+  }
+}
+
+main()
+```
+
+### Code Breakdown
+
+Let's break down the code step by step:
+
+1. **Importing the fs Module**: The code starts by importing the Node.js `fs` module, which provides file system-related functionality.
+
+2. **`listDirectory` Function**: This function takes a `path` as its parameter, representing the directory path you want to list the contents of. It uses `fs.readdirSync(path)` to synchronously read the contents of the directory. If successful, it returns an array of directory entries. If an error occurs, it returns an error message.
+
+3. **`saveToJson` Function**: This function takes `data` (the content to be saved) and a `filename` as parameters. It attempts to write the provided data to the specified file in JSON format using `fs.writeFileSync(filename, JSON.stringify(data, null, 4))`. The `null` and `4` arguments in `JSON.stringify` add formatting for readability. If successful, it returns `true`; otherwise, it returns an error message.
+
+4. **`main` Function**: This is the main entry point of the script. It defines the `directoryPath` variable, which should be replaced with the actual path of the directory you want to work with. It then calls the `listDirectory` function to retrieve the contents of the directory.
+
+5. **Processing Contents**: If the returned `contents` is an array (indicating successful retrieval), the script proceeds to process the data.
+
+   - It first logs the directory contents to the console.
+   - It then demonstrates two options for handling the contents:
+     - **Option 1**: Saving the contents to a JSON file with a specified filename.
+     - **Option 2**: Storing the contents in an in-memory array.
+
+6. **Handling Errors**: If the returned `contents` is not an array (indicating an error occurred during retrieval), an error message is logged to the console.
+
+### Conclusion
+
+In this article, we've explored a practical example of file and directory manipulation using Node.js. The provided code showcases how to list the contents of a directory, save them to a JSON file, and store them in an in-memory array. This knowledge can be applied to a wide range of scenarios, such as organizing data, creating backups, or facilitating user interactions involving files. Armed with this understanding, you're well-equipped to tackle file operations effectively in your Node.js projects.

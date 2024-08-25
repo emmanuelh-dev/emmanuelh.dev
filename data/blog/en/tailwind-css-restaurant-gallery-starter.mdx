@@ -1,0 +1,156 @@
+---
+title: Tailwind restaurant gallery starter!
+date: '2023-08-01'
+tags: [Tailwind, gatsby]
+draft: false
+summary: Tailwind gallery starter!
+images: ['/static/images/gallery.png']
+layout: PostLayout
+language: en
+canonicalUrl: tailwind-css-restaurant-gallery-starter
+---
+
+In this blog post, we will explore a React component that creates a gallery using Gatsby's `StaticImage` component along with Tailwind CSS classes. This gallery component showcases a collection of images in a responsive grid layout.
+[![Tailwind css gallery template](/static/images/gallery.png)](https://la-cafeteria.emmanuelh.dev/)
+
+[Find the live Example Here](https://la-cafeteria.emmanuelh.dev/)
+
+[Find the Repo Here](https://github.com/emmanuelh-dev/la-cafeteria-with-tailwindcss)
+
+**Introduction**
+
+Creating an appealing and responsive image gallery is a common requirement in web development. This gallery component is designed to display multiple images in a grid layout, with the number of columns changing based on the screen size.
+
+**Understanding the Code**
+
+```jsx
+import React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
+
+const Gallery = () => {
+  return (
+    <div className="grid grid-cols-2 gap-8 md:grid-cols-4 [&>img]:h-64 [&>img]:w-64 [&>img]:object-cover">
+      {/* Images */}
+    </div>
+  )
+}
+
+export default Gallery
+```
+
+**Explanation**
+
+1. The component imports React and the `StaticImage` component from `gatsby-plugin-image`.
+
+2. The `Gallery` component is a functional component that renders the gallery grid.
+
+3. The container div has a className with Tailwind CSS utility classes `[&>img]:h-64 [&>img]:object-cover [&>img]:w-64 grid grid-cols-2 md:grid-cols-4 gap-8`. Let's break down these classes:
+
+   - `[&>img]:h-64`: Sets the height of the container to 64px. This ensures a consistent height for the gallery items.
+
+   - `[&>img]:object-cover`: Makes the images scale proportionally to cover the entire container. This prevents image distortion.
+
+   - `[&>img]:w-64`: Sets the width of the container to 64px. This ensures a consistent width for the gallery items.
+
+   - `grid grid-cols-2`: In the default (mobile) layout, the gallery will have 2 columns.
+
+   - `md:grid-cols-4`: On medium-sized screens and above, the gallery will have 4 columns.
+
+   - `gap-8`: Adds a gap of 8px between the gallery items.
+
+4. The gallery items are represented by the `StaticImage` components. Each `StaticImage` element represents an individual image in the gallery.
+
+   - The `src` attribute specifies the image path.
+
+   - The `alt` attribute provides alternative text for accessibility.
+
+   - The `className` attribute applies Tailwind CSS classes for layout customization. These classes define the size and positioning of each image based on the desired layout.
+
+5. Each `StaticImage` component is assigned different `className` values, such as `object-center`, `object-cover`, `md:col-span-2`, `md:row-span-2`, etc., to control the positioning and spanning of images in the grid based on the screen size.
+
+## How you can use col-span and row-span to create a custom gallery with your own style like this:
+
+[![Tailwind css gallery template](/static/images/gallery.png)](https://la-cafeteria.emmanuelh.dev/)
+
+[Find the live Example Here](https://la-cafeteria.emmanuelh.dev/)
+
+[Find the Repo Here](https://github.com/emmanuelh-dev/la-cafeteria-with-tailwindcss)
+
+In HTML and CSS grid systems, col-span and row-span are properties used to control the size and positioning of grid items. These properties allow you to span a grid item across multiple columns or rows in the grid.
+
+```jsx
+import React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
+
+const Gallery = () => {
+  return (
+    <div className="grid grid-cols-2 gap-8 md:grid-cols-4 [&>img]:h-64 [&>img]:w-64 [&>img]:object-cover">
+      <StaticImage
+        src="../images/img/galeria/galeria_01.jpg"
+        alt="galeria"
+        className="object-cover object-center md:row-span-2"
+      />
+
+      <StaticImage
+        src="../images/img/galeria/galeria_02.jpg"
+        alt="galeria"
+        className="object-cover object-center md:col-span-2"
+      />
+
+      <StaticImage
+        src="../images/img/galeria/galeria_03.jpg"
+        alt="galeria"
+        className="object-cover object-center md:col-span-1"
+      />
+
+      <StaticImage
+        src="../images/img/galeria/galeria_04.jpg"
+        alt="galeria"
+        className="object-cover object-center md:row-span-2"
+      />
+
+      <StaticImage
+        src="../images/img/galeria/galeria_05.jpg"
+        alt="galeria"
+        className="object-cover object-center md:col-span-2"
+      />
+
+      <StaticImage
+        src="../images/img/galeria/galeria_06.jpg"
+        alt="galeria"
+        className="object-cover object-center md:col-span-2"
+      />
+
+      <StaticImage
+        src="../images/img/galeria/galeria_07.jpg"
+        alt="galeria"
+        className="object-cover object-center md:row-span-2 md:row-start-3"
+      />
+
+      <StaticImage
+        src="../images/img/galeria/galeria_08.jpg"
+        alt="galeria"
+        className="object-cover object-center md:col-span-3"
+      />
+
+      <StaticImage
+        src="../images/img/galeria/galeria_09.jpg"
+        alt="galeria"
+        className="object-cover object-center md:col-span-2"
+      />
+
+      <StaticImage
+        src="../images/img/galeria/galeria_10.jpg"
+        alt="galeria"
+        className="object-cover object-center md:col-span-2"
+      />
+    </div>
+  )
+}
+
+export default Gallery
+```
+
+**Conclusion**
+
+The gallery component demonstrated here uses React, Gatsby's `StaticImage`, and Tailwind CSS classes to create a responsive and visually appealing image gallery. With its flexible grid layout, the gallery can adapt to different screen sizes, providing an optimal viewing experience for users. You can customize the gallery further by tweaking the Tailwind CSS classes or adding more images to the grid.
