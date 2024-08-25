@@ -58,7 +58,7 @@ const MobileNav = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="h-8 w-8 text-gray-900 dark:text-gray-100"
+          className="h-8 w-8 text-neutral-900 dark:text-gray-100"
         >
           <path
             fillRule="evenodd"
@@ -68,7 +68,7 @@ const MobileNav = () => {
         </svg>
       </button>
       <div
-        className={`fixed left-0 top-0 z-10 my-auto h-full w-full transform overflow-y-auto bg-white opacity-95 duration-300 ease-in-out dark:bg-gray-950 dark:opacity-[0.98] ${
+        className={`fixed left-0 top-0 z-10 my-auto h-full w-full transform overflow-y-auto bg-white opacity-95 duration-300 ease-in-out dark:bg-black dark:opacity-[0.98] ${
           navShow ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -77,7 +77,7 @@ const MobileNav = () => {
             <svg
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="text-gray-900 dark:text-gray-100"
+              className="text-neutral-900 dark:text-gray-100"
             >
               <path
                 fillRule="evenodd"
@@ -92,7 +92,7 @@ const MobileNav = () => {
             <div key={link.title} className="px-12 py-4">
               <Link
                 href={`/${locale}${link.href}`}
-                className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+                className="text-2xl font-bold tracking-widest text-neutral-900 dark:text-gray-100"
                 onClick={onToggleNav}
               >
                 {t(`${link.title.toLowerCase()}`)}
@@ -102,7 +102,7 @@ const MobileNav = () => {
           {siteMetadata.multiauthors && (
             <>
               <div
-                className="flex cursor-pointer items-center justify-between px-12 py-4 text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+                className="flex cursor-pointer items-center justify-between px-12 py-4 text-2xl font-bold tracking-widest text-neutral-900 dark:text-gray-100"
                 onClick={toggleAccordion}
               >
                 <div>{t('about')}:</div>
@@ -142,7 +142,7 @@ const MobileNav = () => {
                         <Link
                           href={`/${locale}/about/${slug}`}
                           onClick={onToggleNav}
-                          className="text-xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+                          className="text-xl font-bold tracking-widest text-neutral-900 dark:text-gray-100"
                         >
                           {name}
                         </Link>
@@ -155,7 +155,7 @@ const MobileNav = () => {
             </>
           )}
           {siteMetadata.multiauthors === false && (
-            <div className="px-12 py-4 text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100">
+            <div className="px-12 py-4 text-2xl font-bold tracking-widest text-neutral-900 dark:text-gray-100">
               {mainAuthor.map((author) => {
                 const { name, language, slug } = author
                 if (language === locale) {

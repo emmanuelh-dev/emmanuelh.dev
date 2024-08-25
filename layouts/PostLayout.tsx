@@ -94,7 +94,7 @@ export default async function PostLayout({
                         )}
                         <dl className="whitespace-nowrap text-sm font-medium leading-5">
                           <dt className="sr-only">{t('name')}</dt>
-                          <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
+                          <dd className="text-neutral-900 dark:text-gray-100">{author.name}</dd>
                           <dt className="sr-only">Twitter</dt>
                           <dd>
                             {author.twitter && (

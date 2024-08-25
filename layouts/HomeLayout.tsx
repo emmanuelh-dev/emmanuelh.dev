@@ -21,13 +21,13 @@ interface HomeProps {
   params: { locale: LocaleTypes }
 }
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 6
 
 export default async function HomeLayout({ posts, params: { locale } }: HomeProps) {
   const { t } = await createTranslation(locale, 'home')
   return (
     <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      <div className="">
         <LayoutHeader title={t('greeting')} description={t('description')} />
         <PostList posts={posts} locale={locale} t={t} maxDisplay={MAX_DISPLAY} />
       </div>
