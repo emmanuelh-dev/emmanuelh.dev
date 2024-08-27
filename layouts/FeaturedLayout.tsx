@@ -25,7 +25,7 @@ export default async function FeaturedLayout({ posts, params: { locale } }: Home
   const { t } = await createTranslation(locale, 'home')
   return (
     <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      <div>
         <LayoutHeader title={t('featured')} />
         <PostList posts={posts} locale={locale} t={t} maxDisplay={MAX_DISPLAY} />
       </div>
