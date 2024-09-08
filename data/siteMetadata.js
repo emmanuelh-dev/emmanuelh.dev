@@ -1,7 +1,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Next.js i18n Starter Blog',
-  author: 'Tails Azimuth',
+  author: 'Emmanuel Díaz Leal Hernández',
   headerTitle: 'TailwindBlog',
   description: 'A blog created with Next.js, i18n and Tailwind.css',
   language: 'en',
