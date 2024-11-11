@@ -13,6 +13,8 @@ import siteMetadata from '@/data/siteMetadata'
 import { maintitle } from '@/data/localeMetadata'
 import { notFound } from 'next/navigation'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import TocBody from '@/components/sidetoc/TocBody'
 
 interface BlogPageProps {
   params: { slug: string[]; locale: LocaleTypes }
@@ -142,23 +144,27 @@ export default async function Page({ params: { slug, locale } }: BlogPageProps) 
     }
   })
 
-  const Layout = layouts[post.layout || defaultLayout]
-
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <Layout
-        content={mainContent}
-        authorDetails={authorDetails}
-        next={next}
-        prev={prev}
-        params={{ locale: locale }}
-      >
+    <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+      <div className="mx-auto w-full min-w-0 max-w-4xl prose dark:prose-invert px-8">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <div className="space-y-8 mb-8">
+          <div className="space-y-1">
+            <h2 className="text-lg font-medium text-gray-500">Emmanuel Hernandez</h2>
+            <div className="flex items-center gap-2 text-sm text-gray-400"><span>May 25, 2024</span><span>•</span><div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-950 focus:ring-offset-2 dark:border-neutral-800 dark:focus:ring-neutral-300 border-transparent bg-neutral-100 text-neutral-900 hover:bg-neutral-100/80 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-800/80">Intermediate</div><span>•</span><div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-950 focus:ring-offset-2 dark:border-neutral-800 dark:focus:ring-neutral-300 border-transparent bg-neutral-100 text-neutral-900 hover:bg-neutral-100/80 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-800/80">Short</div></div></div><div className="space-y-4"><h1 className="text-4xl font-bold">{post.title}</h1><p className="text-xl text-gray-400">{post.summary}</p></div></div>
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
-      </Layout>
-    </>
+      </div>
+      <div className="hidden text-sm xl:block">
+        <div className="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] pt-4">
+          <ScrollArea className="h-full pb-10">
+            <h2 className="text-2xl font-bold">Table of Contents</h2>
+            <TocBody toc={post.toc} />
+          </ScrollArea>
+        </div>
+      </div>
+    </main>
   )
 }

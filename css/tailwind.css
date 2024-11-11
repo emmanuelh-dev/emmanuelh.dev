@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.content-header {
+  @apply flex gap-2;
+}
+
+.linkicon {
+  @apply mt-2 -ml-8;
+}
