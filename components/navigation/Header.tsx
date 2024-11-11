@@ -20,8 +20,8 @@ const Header = () => {
   const pathname = usePathname()
 
   return (
-    <header>
-      <div className="flex items-center justify-between py-10">
+    <header className='border-b border-neutral-200 dark:border-neutral-400 sticky top-0 w-full px-4'>
+      <div className="flex items-center justify-between py-2 ">
         <div>
           <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center justify-between">
@@ -52,11 +52,10 @@ const Header = () => {
                   className="flex transform-gpu items-center space-x-1 transition-transform duration-300"
                 >
                   <div
-                    className={`hidden font-medium ${
-                      isSelected
-                        ? 'text-heading-500'
-                        : 'text-gray-500 hover:text-neutral-900 dark:hover:text-gray-100'
-                    } relative rounded-md px-2 py-1 font-medium transition-colors sm:block`}
+                    className={`hidden font-medium ${isSelected
+                      ? 'text-heading-500'
+                      : 'text-gray-500 hover:text-neutral-900 dark:hover:text-gray-100'
+                      } relative rounded-md px-2 py-1 font-medium transition-colors sm:block`}
                   >
                     <span className="relative z-10">{t(`${link.title.toLowerCase()}`)}</span>
                     {isSelected && (
