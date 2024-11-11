@@ -15,6 +15,7 @@ import { notFound } from 'next/navigation'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import TocBody from '@/components/sidetoc/TocBody'
+import { a } from 'react-spring'
 
 interface BlogPageProps {
   params: { slug: string[]; locale: LocaleTypes }
@@ -144,6 +145,8 @@ export default async function Page({ params: { slug, locale } }: BlogPageProps) 
     }
   })
 
+  console.log(post.toc)
+
   return (
     <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
       <div className="mx-auto w-full min-w-0 max-w-4xl prose dark:prose-invert px-8">
@@ -158,12 +161,16 @@ export default async function Page({ params: { slug, locale } }: BlogPageProps) 
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
       </div>
       <div className="hidden text-sm xl:block">
-        <div className="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] pt-4">
-          <ScrollArea className="h-full pb-10">
+        <aside className="sticky top-10 -mt-10 h-[calc(100vh-3.5rem)] pt-4">
+          <ScrollArea className="h-full py-6">
             <h2 className="text-2xl font-bold">Table of Contents</h2>
-            <TocBody toc={post.toc} />
+            <ul className='pl-4'>
+              {post.toc.map(({ value, url, depth }) => (
+                <li className='mt-2'><a href={url} key={url}>{value}</a></li>
+              ))}
+            </ul>
           </ScrollArea>
-        </div>
+        </aside>
       </div>
     </main>
   )

@@ -1,9 +1,5 @@
 import { Metadata } from 'next'
-import ListLayout from '@/layouts/ListLayout'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-import { allBlogs } from 'contentlayer/generated'
 import { genPageMetadata } from 'app/[locale]/seo'
-import { createTranslation } from '../i18n/server'
 import { LocaleTypes } from '../i18n/settings'
 
 type BlogPageProps = {
@@ -18,9 +14,9 @@ export async function generateMetadata({ params: { locale } }: BlogPageProps): P
 }
 
 export default async function BlogPage({ params: { locale } }: BlogPageProps) {
-  const { t } = await createTranslation(locale, 'home')
-  const posts = allCoreContent(sortPosts(allBlogs))
-  const filteredPosts = posts.filter((post) => post.language === locale)
+  return (
+    <>
 
-  return <ListLayout params={{ locale: locale }} posts={filteredPosts} title={t('all')} />
+    </>
+  )
 }
