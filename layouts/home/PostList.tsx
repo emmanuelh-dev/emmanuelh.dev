@@ -39,15 +39,13 @@ const PostList: React.FC<PostListProps> = ({ posts, locale, t, maxDisplay }) => 
             <article className="flex h-full flex-col">
               <div className="flex flex-grow flex-col">
                 <header>
-                  {images && (
-                    <Image
-                      src={images[0]}
-                      alt={title}
-                      width={400}
-                      height={400}
-                      className={`w-full rounded-lg object-cover ${imageSpan(i)}`}
-                    />
-                  )}
+                  <Image
+                    src={images ? images[0] : '/static/images/heroku.png'}
+                    alt={title}
+                    width={400}
+                    height={400}
+                    className={`w-full rounded-lg object-cover ${imageSpan(i)}`}
+                  />
                   <div className="mb-2 flex items-center justify-between">
                     <time
                       dateTime={post.date}
