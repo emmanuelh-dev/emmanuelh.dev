@@ -149,7 +149,7 @@ export default async function Page({ params: { slug, locale } }: BlogPageProps) 
 
   return (
     <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
-      <div className="prose mx-auto w-full min-w-0 max-w-4xl px-8 dark:prose-invert">
+      <div className="prose mx-auto w-full min-w-0 max-w-4xl dark:prose-invert lg:px-8">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
