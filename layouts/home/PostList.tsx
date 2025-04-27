@@ -7,7 +7,7 @@ import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { ArrowRightIcon, ClockIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Blog } from 'contentlayer/generated'
+import type { Blog } from 'contentlayer/generated'
 import Image from 'next/image'
 
 interface PostListProps {

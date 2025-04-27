@@ -6,7 +6,6 @@ import { LocaleTypes } from '../app/[locale]/i18n/settings'
 import PostList from './home/PostList'
 // Removed unused LayoutHeader import
 import Image from 'next/image'
-import { Blog } from 'contentlayer/generated'
 
 interface Post {
   slug: string
@@ -19,7 +18,7 @@ interface Post {
 }
 
 interface HomeProps {
-  posts: Blog[]
+  posts: Post[]
   params: { locale: LocaleTypes }
 }
 
@@ -69,7 +68,7 @@ export default async function HomeLayout({ posts, params: { locale } }: HomeProp
           {t('latestPosts', 'Últimos Posts')} {/* Add translation key */}
         </h2>
       </div>
-      <PostList posts={posts} locale={locale} t={t} maxDisplay={MAX_DISPLAY} />
+      <PostList posts={posts as any} locale={locale} t={t} maxDisplay={MAX_DISPLAY} />
 
       {posts.length > MAX_DISPLAY && (
         <div className="flex justify-end pt-6 text-base font-medium leading-6">
