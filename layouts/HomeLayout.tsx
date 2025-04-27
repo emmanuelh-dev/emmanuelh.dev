@@ -6,6 +6,7 @@ import { LocaleTypes } from '../app/[locale]/i18n/settings'
 import PostList from './home/PostList'
 // Removed unused LayoutHeader import
 import Image from 'next/image'
+import { Blog } from 'contentlayer/generated'
 
 interface Post {
   slug: string
@@ -18,24 +19,24 @@ interface Post {
 }
 
 interface HomeProps {
-  posts: Post[]
+  posts: Blog[]
   params: { locale: LocaleTypes }
 }
 
-const MAX_DISPLAY = 5 // Adjusted max display for better spacing
+const MAX_DISPLAY = 7
 
 export default async function HomeLayout({ posts, params: { locale } }: HomeProps) {
   const { t } = await createTranslation(locale, 'home')
-  const { t: tSite } = await createTranslation(locale, 'siteMetadata') // For localized site metadata if needed
+  const { t: tSite } = await createTranslation(locale, 'siteMetadata')
 
   return (
     <div className="divide-y divide-gray-200 dark:divide-gray-700">
       {/* Hero Section */}
       <div className="space-y-6 pb-12 pt-6 text-center md:space-y-5 md:pt-10">
         <Image
-          src={siteMetadata.image || '/static/images/avatar.png'} // Use siteMetadata.image or fallback
+          src={siteMetadata.image || '/static/images/avatar.png'}
           alt="avatar"
-          width={192} // Increased size
+          width={192}
           height={192}
           className="mx-auto h-48 w-48 rounded-full border-4 border-primary-500 object-cover shadow-lg"
         />

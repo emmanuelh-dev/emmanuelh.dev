@@ -154,21 +154,6 @@ const MobileNav = () => {
               </motion.div>
             </>
           )}
-          {siteMetadata.multiauthors === false && (
-            <div className="px-12 py-4 text-2xl font-bold tracking-widest text-neutral-900 dark:text-gray-100">
-              {mainAuthor.map((author) => {
-                const { name, language, slug } = author
-                if (language === locale) {
-                  return (
-                    <Link href={`/${locale}/about/${slug}`} onClick={onToggleNav} key={name}>
-                      {t('about')}
-                    </Link>
-                  )
-                }
-                return null
-              })}
-            </div>
-          )}
         </nav>
       </div>
     </>

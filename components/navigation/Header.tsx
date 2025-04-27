@@ -5,7 +5,6 @@ import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
 import Logo from '@/data/logo.svg'
 import Link from '../mdxcomponents/Link'
-import AuthorsMenu from './AuthorsMenu'
 import MobileNav from './MobileNav'
 import ThemeSwitch from '../ThemeSwitch'
 import LangSwitch from '../langswitch'
@@ -20,7 +19,7 @@ const Header = () => {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white px-4 dark:border-neutral-400 dark:bg-black">
+    <header className="sticky top-0 z-50 w-full bg-white px-4 dark:bg-black">
       <div className="flex items-center justify-between py-2 ">
         <div>
           <Link href={`/${locale}/`} aria-label={siteMetadata.headerTitle}>
@@ -70,7 +69,6 @@ const Header = () => {
                 </Link>
               )
             })}
-          <AuthorsMenu className="hidden sm:block" />
           <SearchButton />
           <ThemeSwitch />
           <LangSwitch />

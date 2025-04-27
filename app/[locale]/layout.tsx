@@ -126,7 +126,7 @@ export default function RootLayout({
         <ThemeProviders>
           <SectionContainer>
             {/* Consider adding a subtle background pattern or gradient here */}
-            <div className="flex min-h-screen flex-col justify-between border-x border-gray-200 dark:border-gray-700">
+            <div className="flex min-h-screen flex-col justify-between">
               <SearchProvider>
                 <Header />
                 <main className="mb-auto px-4 py-6 sm:px-6 lg:px-8">{children}</main>

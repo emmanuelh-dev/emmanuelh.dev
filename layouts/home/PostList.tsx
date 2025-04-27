@@ -7,43 +7,47 @@ import { LocaleTypes } from 'app/[locale]/i18n/settings'
 import { ArrowRightIcon, ClockIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-
-interface Post {
-  slug: string
-  date: string
-  title: string
-  summary?: string | undefined
-  tags: string[]
-  language: string
-  draft?: boolean
-}
+import { Blog } from 'contentlayer/generated'
+import Image from 'next/image'
 
 interface PostListProps {
-  posts: Post[]
+  posts: Blog[]
   locale: LocaleTypes
   t: (key: string) => string
   maxDisplay: number
 }
 
 const PostList: React.FC<PostListProps> = ({ posts, locale, t, maxDisplay }) => {
+  const colSpan = (i) => {
+    if (i == 0) return 'lg:col-span-2'
+  }
+
+  const imageSpan = (i) => {
+    if (i == 0) return 'lg:aspect-video'
+  }
+
   return (
-    <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {!posts.length && <li>{t('noposts')}</li>}
-      {posts.slice(0, maxDisplay).map((post) => {
-        const { slug, date, title, summary, tags } = post
+      {posts.slice(0, maxDisplay).map((post, i) => {
+        const { slug, date, title, summary, tags, images } = post
         return (
           <li
-            key={post.slug}
-            className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700 dark:bg-gray-950"
+            key={i}
+            className={` ${colSpan(i)} flex flex-col overflow-hidden rounded-lg bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:bg-gray-950 lg:p-6`}
           >
             <article className="flex h-full flex-col">
-              {/* Removed Card and CardContent wrappers */}
-              {/* Optional: Add figure back if needed */}
-              {/* <figure className="m-0 mb-4">
-                <img src={post.imageUrl} alt="" className="w-full h-48 object-cover rounded-t-lg" />
-              </figure> */}
               <div className="flex flex-grow flex-col">
                 <header>
+                  {images && (
+                    <Image
+                      src={images[0]}
+                      alt={title}
+                      width={400}
+                      height={400}
+                      className={`w-full rounded-lg object-cover ${imageSpan(i)}`}
+                    />
+                  )}
                   <div className="mb-2 flex items-center justify-between">
                     <time
                       dateTime={post.date}
@@ -58,7 +62,7 @@ const PostList: React.FC<PostListProps> = ({ posts, locale, t, maxDisplay }) => 
                   </div>
                   <h2 className="mb-2 text-xl font-bold leading-tight text-neutral-900 dark:text-gray-100">
                     <Link
-                      href={`/blog/${post.slug}`}
+                      href={`/${locale}/blog/${post.slug}`}
                       className="hover:text-primary-600 dark:hover:text-primary-400"
                     >
                       {post.title}
@@ -82,7 +86,7 @@ const PostList: React.FC<PostListProps> = ({ posts, locale, t, maxDisplay }) => 
                     ))}
                   </ul>
                   <Button asChild className="mt-auto w-full">
-                    <Link href={`${locale}/blog/${post.slug}`}>
+                    <Link href={`/${locale}/blog/${post.slug}`}>
                       <span className="sr-only">Leer más sobre {post.title}</span>
                       <span aria-hidden="true">Leer más</span>{' '}
                       <ArrowRightIcon className="ml-2 h-4 w-4" aria-hidden="true" />
