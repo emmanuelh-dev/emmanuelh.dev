@@ -149,24 +149,44 @@ export default async function Page({ params: { slug, locale } }: BlogPageProps) 
 
   return (
     <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
-      <div className="mx-auto w-full min-w-0 max-w-4xl prose dark:prose-invert px-8">
+      <div className="prose mx-auto w-full min-w-0 max-w-4xl px-8 dark:prose-invert">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <div className="space-y-8 mb-8">
+        <div className="mb-8 space-y-8">
           <div className="space-y-1">
             <h2 className="text-lg font-medium text-gray-500">Emmanuel Hernandez</h2>
-            <div className="flex items-center gap-2 text-sm text-gray-400"><span>May 25, 2024</span><span>•</span><div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-950 focus:ring-offset-2 dark:border-neutral-800 dark:focus:ring-neutral-300 border-transparent bg-neutral-100 text-neutral-900 hover:bg-neutral-100/80 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-800/80">Intermediate</div><span>•</span><div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-950 focus:ring-offset-2 dark:border-neutral-800 dark:focus:ring-neutral-300 border-transparent bg-neutral-100 text-neutral-900 hover:bg-neutral-100/80 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-800/80">Short</div></div></div><div className="space-y-4"><h1 className="text-4xl font-bold">{post.title}</h1><p className="text-xl text-gray-400">{post.summary}</p></div></div>
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <span>May 25, 2024</span>
+              <span>•</span>
+              <div className="inline-flex items-center rounded-full border border-transparent bg-neutral-100 px-2.5 py-0.5 text-xs font-semibold text-neutral-900 transition-colors hover:bg-neutral-100/80 focus:outline-none focus:ring-2 focus:ring-neutral-950 focus:ring-offset-2 dark:border-neutral-800 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-800/80 dark:focus:ring-neutral-300">
+                Intermediate
+              </div>
+              <span>•</span>
+              <div className="inline-flex items-center rounded-full border border-transparent bg-neutral-100 px-2.5 py-0.5 text-xs font-semibold text-neutral-900 transition-colors hover:bg-neutral-100/80 focus:outline-none focus:ring-2 focus:ring-neutral-950 focus:ring-offset-2 dark:border-neutral-800 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-800/80 dark:focus:ring-neutral-300">
+                Short
+              </div>
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h1 className="text-4xl font-bold">{post.title}</h1>
+            <p className="text-xl text-gray-400">{post.summary}</p>
+          </div>
+        </div>
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
       </div>
       <div className="hidden text-sm xl:block">
         <aside className="sticky top-10 -mt-10 h-[calc(100vh-3.5rem)] pt-4">
           <ScrollArea className="h-full py-6">
             <h2 className="text-2xl font-bold">Table of Contents</h2>
-            <ul className='pl-4'>
+            <ul className="pl-4">
               {post.toc.map(({ value, url, depth }) => (
-                <li className='mt-2'><a href={url} key={url}>{value}</a></li>
+                <li className="mt-2">
+                  <a href={url} key={url}>
+                    {value}
+                  </a>
+                </li>
               ))}
             </ul>
           </ScrollArea>

@@ -1,32 +1,26 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
+import { useEffect, useState } from 'react'
+import { useTheme } from 'next-themes'
 
-import Particles from "@/components/magicui/particles";
+import Particles from '@/components/magicui/particles'
 
 const ParticlesComponent = () => {
-  const { theme } = useTheme();
-  const [color, setColor] = useState("#fff");
+  const { theme } = useTheme()
+  const [color, setColor] = useState('#fff')
 
   useEffect(() => {
-    setColor(theme === "dark" ? "#ffffff" : "#000000");
-  }, [theme]);
+    setColor(theme === 'dark' ? '#ffffff' : '#000000')
+  }, [theme])
 
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+    <div className="bg-background relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border md:shadow-xl">
       <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
         Particles
       </span>
-      <Particles
-        className="absolute inset-0"
-        quantity={100}
-        ease={80}
-        color={color}
-        refresh
-      />
+      <Particles className="absolute inset-0" quantity={100} ease={80} color={color} refresh />
     </div>
-  );
-};
+  )
+}
 
-export default ParticlesComponent;
+export default ParticlesComponent

@@ -96,7 +96,7 @@ export default function RootLayout({
         <TwSizeIndicator />
         <ThemeProviders>
           <SectionContainer>
-            <div className="font-sans border border-neutral-200 dark:border-neutral-400">
+            <div className="border border-neutral-200 font-sans dark:border-neutral-400">
               <SearchProvider>
                 <Header />
                 <main className="mb-auto px-4">{children}</main>

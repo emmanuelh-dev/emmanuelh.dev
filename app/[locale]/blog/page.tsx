@@ -14,9 +14,5 @@ export async function generateMetadata({ params: { locale } }: BlogPageProps): P
 }
 
 export default async function BlogPage({ params: { locale } }: BlogPageProps) {
-  return (
-    <>
-
-    </>
-  )
+  return <></>
 }
