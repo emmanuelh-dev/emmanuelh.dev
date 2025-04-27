@@ -1,27 +1,28 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js i18n Starter Blog',
-  author: 'Emmanuel Díaz Leal Hernández',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js, i18n and Tailwind.css',
-  language: 'en',
-  theme: 'light', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog-i18n.vercel.app',
-  siteRepo: 'https://github.com/PxlSyl/tailwind-nextjs-starter-blog-i18n',
-  siteLogo: '/static/images/logo.png',
-  socialBanner: '/static/images/twitter-card.png',
-  mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
-  x: 'https://twitter.com/x',
-  // twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
-  threads: 'https://www.threads.net',
-  instagram: 'https://www.instagram.com',
-  locale: 'en',
-  multiauthors: true,
+  title: 'Emmanuel Diaz Leal Hernandez - Portfolio',
+  author: 'Emmanuel Diaz Leal Hernandez',
+  headerTitle: 'EmmanuelHDev',
+  description: 'Portfolio personal y blog de Emmanuel Diaz Leal Hernandez (emmanuelhdev, bysmax). Explorando el desarrollo web, la tecnología y más.',
+  language: 'es', // Set default language to Spanish
+  theme: 'system', // system, dark or light
+  siteUrl: 'https://emmanuelh.dev', // Replace with actual domain if different
+  siteRepo: 'https://github.com/emmanuelhdev/emmanuelh.dev', // Replace with actual repo URL
+  siteLogo: '/static/images/logo.png', // Keep or update logo path
+  socialBanner: '/static/images/twitter-card.png', // Keep or update banner path
+  // mastodon: 'https://mastodon.social/@mastodonuser', // Uncomment and update if used
+  email: 'contact@emmanuelh.dev', // Replace with actual email
+  github: 'https://github.com/emmanuelhdev', // Replace with actual GitHub profile
+  // x: 'https://twitter.com/x', // Uncomment and update if used
+  // twitter: 'https://twitter.com/Twitter', // Uncomment and update if used
+  // facebook: 'https://facebook.com', // Uncomment and update if used
+  // youtube: 'https://youtube.com', // Uncomment and update if used
+  linkedin: 'https://www.linkedin.com/in/emmanuel-diaz-leal-hernandez/', // Replace with actual LinkedIn profile
+  // threads: 'https://www.threads.net', // Uncomment and update if used
+  // instagram: 'https://www.instagram.com', // Uncomment and update if used
+  locale: 'es', // Set default locale to Spanish
+  keywords: ['Emmanuel Diaz Leal Hernandez', 'emmanuelhdev', 'bysmax', 'portfolio', 'blog', 'desarrollo web', 'software engineer', 'ingeniero de software', 'programacion', 'tecnologia'], // Add Spanish keywords
+  multiauthors: false, // Set based on whether multiple authors contribute
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
@@ -44,9 +45,9 @@ const siteMetadata = {
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
     // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    provider: undefined, // Set to undefined or remove if no newsletter
   },
-  iscomments: false,
+  iscomments: true, // Enable comments if desired
   comments: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
@@ -74,7 +75,7 @@ const siteMetadata = {
       // example: https://giscus.app/themes/custom_example.css
       themeURL: '',
       // This corresponds to the `data-lang="en"` in giscus's configurations
-      lang: 'en',
+      lang: 'es', // Set giscus language to Spanish
     },
   },
   search: {
@@ -94,7 +95,7 @@ const siteMetadata = {
   // formspree support :
   //if set to false, simple "mailto"
   // if set to true, get a free account there : https://formspree.io/ and go to read.me doc
-  formspree: true,
+  formspree: false, // Set to true if using Formspree
   // waline support
   iswaline: false,
   walineServer: '',

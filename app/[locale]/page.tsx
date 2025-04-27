@@ -16,7 +16,6 @@ export default async function Page({ params: { locale } }: HomeProps) {
 
   return (
     <>
-      {hasFeaturedPosts && <FeaturedLayout posts={hasFeaturedPosts} params={{ locale }} />}
       <HomeLayout posts={filteredPosts} params={{ locale }} />
     </>
   )

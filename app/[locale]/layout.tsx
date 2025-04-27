@@ -7,7 +7,8 @@ import Header from '@/components/navigation/Header'
 import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/navigation/Footer'
 import siteMetadata from '@/data/siteMetadata'
-import { maintitle, maindescription } from '@/data/localeMetadata'
+// Remove unused localeMetadata import if not needed elsewhere, or update its usage
+// import { maintitle, maindescription } from '@/data/localeMetadata'
 import { Metadata } from 'next'
 import { dir } from 'i18next'
 import { LocaleTypes, locales } from './i18n/settings'
@@ -24,19 +25,46 @@ const space_grotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 })
 
+// Helper function to generate title and description based on locale
+// This assumes you might want different titles/descriptions per language later
+// For now, it uses the main siteMetadata but includes the user's name and keywords
+const getLocaleMetadata = (locale: LocaleTypes) => {
+  const baseTitle = `${siteMetadata.title} | Emmanuel Diaz Leal Hernandez - Portfolio`
+  const baseDescription = `Portfolio personal y blog de Emmanuel Diaz Leal Hernandez (emmanuelhdev, bysmax). ${siteMetadata.description}`
+  // You can customize title/description per locale here if needed
+  // Example: if (locale === 'en') { ... } else if (locale === 'es') { ... }
+  return {
+    title: baseTitle,
+    description: baseDescription,
+  }
+}
+
 export async function generateMetadata({ params: { locale } }): Promise<Metadata> {
+  const { title: localeTitle, description: localeDescription } = getLocaleMetadata(locale)
   return {
     metadataBase: new URL(siteMetadata.siteUrl),
     title: {
-      default: maintitle[locale],
-      template: `%s | ${maintitle[locale]}`,
+      default: localeTitle,
+      template: `%s | ${localeTitle}`, // Use the dynamic title here too
     },
-    description: maindescription[locale],
+    description: localeDescription,
+    keywords: [
+      'Emmanuel Diaz Leal Hernandez',
+      'emmanuelhdev',
+      'bysmax',
+      'portfolio',
+      'blog',
+      'desarrollo web',
+      'software engineer',
+      ...(siteMetadata.keywords || []),
+    ],
+    authors: [{ name: 'Emmanuel Diaz Leal Hernandez', url: siteMetadata.siteUrl }],
+    creator: 'Emmanuel Diaz Leal Hernandez',
     openGraph: {
-      title: maintitle[locale],
-      description: maindescription[locale],
+      title: localeTitle,
+      description: localeDescription,
       url: './',
-      siteName: maintitle[locale],
+      siteName: localeTitle, // Use dynamic title
       images: [siteMetadata.socialBanner],
       locale: locale,
       type: 'website',
@@ -59,10 +87,10 @@ export async function generateMetadata({ params: { locale } }): Promise<Metadata
       },
     },
     twitter: {
-      title: maintitle[locale],
-      description: maindescription[locale],
+      title: localeTitle, // Use dynamic title
+      description: localeDescription,
       site: siteMetadata.siteUrl,
-      creator: siteMetadata.author,
+      creator: siteMetadata.author, // Keep original author or update if needed
       card: 'summary_large_image',
       images: [siteMetadata.socialBanner],
     },
@@ -83,6 +111,7 @@ export default function RootLayout({
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
+      {/* Favicons and other head elements remain the same */}
       <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
@@ -96,10 +125,11 @@ export default function RootLayout({
         <TwSizeIndicator />
         <ThemeProviders>
           <SectionContainer>
-            <div className="border border-neutral-200 font-sans dark:border-neutral-400">
+            {/* Consider adding a subtle background pattern or gradient here */}
+            <div className="flex min-h-screen flex-col justify-between border-x border-gray-200 dark:border-gray-700">
               <SearchProvider>
                 <Header />
-                <main className="mb-auto px-4">{children}</main>
+                <main className="mb-auto px-4 py-6 sm:px-6 lg:px-8">{children}</main>
               </SearchProvider>
               <Footer />
             </div>
