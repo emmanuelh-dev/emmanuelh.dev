@@ -1,12 +1,7 @@
 import React from 'react'
 import Link from '@/components/mdxcomponents/Link'
-import Tag from '@/components/tag'
 import { formatDate } from 'pliny/utils/formatDate'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
-
-import { ArrowRightIcon, ClockIcon } from '@radix-ui/react-icons'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import type { Blog } from 'contentlayer/generated'
 import Image from 'next/image'
 
@@ -18,85 +13,118 @@ interface PostListProps {
 }
 
 const PostList: React.FC<PostListProps> = ({ posts, locale, t, maxDisplay }) => {
-  const colSpan = (i) => {
-    if (i == 0) return 'lg:col-span-2'
-  }
-
-  const imageSpan = (i) => {
-    if (i == 0) return 'lg:aspect-video'
+  if (!posts.length) {
+    return (
+      <div className="py-12 text-center">
+        <p className="text-gray-600 dark:text-gray-400">{t('noposts')}</p>
+      </div>
+    )
   }
 
   return (
-    <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {!posts.length && <li>{t('noposts')}</li>}
-      {posts.slice(0, maxDisplay).map((post, i) => {
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {posts.slice(0, maxDisplay).map((post, index) => {
         const { slug, date, title, summary, tags, images } = post
+        const isFirstPost = index === 0
+
         return (
-          <li
-            key={i}
-            className={` ${colSpan(i)} flex flex-col overflow-hidden rounded-lg bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:bg-gray-950 lg:p-6`}
+          <article
+            key={slug}
+            className={`group relative transition-all duration-200 hover:-translate-y-1 ${
+              isFirstPost ? 'md:col-span-2 lg:col-span-2' : ''
+            }`}
           >
-            <article className="flex h-full flex-col">
-              <div className="flex flex-grow flex-col">
-                <header>
-                  <Image
-                    src={images ? images[0] : '/static/images/heroku.png'}
-                    alt={title}
-                    width={400}
-                    height={400}
-                    className={`w-full rounded-lg object-cover ${imageSpan(i)}`}
-                  />
-                  <div className="mb-2 flex items-center justify-between">
-                    <time
-                      dateTime={post.date}
-                      className="text-sm font-medium text-gray-500 dark:text-gray-400"
-                    >
-                      {formatDate(post.date)}
-                    </time>
-                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                      <ClockIcon className="mr-1 h-4 w-4" aria-hidden="true" />
-                      {/* <span>{post.readTime} min read</span> */}
-                    </div>
-                  </div>
-                  <h2 className="mb-2 text-xl font-bold leading-tight text-neutral-900 dark:text-gray-100">
-                    <Link
-                      href={`/${locale}/blog/${post.slug}`}
-                      className="hover:text-primary-600 dark:hover:text-primary-400"
-                    >
-                      {post.title}
-                    </Link>
-                  </h2>
-                </header>
-                <p className="mb-4 line-clamp-3 flex-grow text-gray-600 dark:text-gray-300">
-                  {post.summary}
-                </p>
-                <footer>
-                  <ul className="mb-4 flex list-none flex-wrap gap-2 p-0">
-                    {post.tags.map((tag) => (
-                      <li key={tag}>
-                        <Badge
-                          variant="secondary"
-                          className="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200"
-                        >
-                          {tag}
-                        </Badge>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button asChild className="mt-auto w-full">
-                    <Link href={`/${locale}/blog/${post.slug}`}>
-                      <span className="sr-only">Leer más sobre {post.title}</span>
-                      <span aria-hidden="true">Leer más</span>{' '}
-                      <ArrowRightIcon className="ml-2 h-4 w-4" aria-hidden="true" />
-                    </Link>
-                  </Button>
-                </footer>
+            {/* Post Image */}
+            {images && images[0] && (
+              <div className="mb-6 overflow-hidden rounded-lg">
+                <Image
+                  src={images[0]}
+                  alt={title}
+                  width={600}
+                  height={300}
+                  className={`w-full object-cover transition-transform duration-300 group-hover:scale-105 ${
+                    isFirstPost ? 'h-56 lg:h-72' : 'h-48'
+                  }`}
+                />
               </div>
-            </article>
-          </li>
+            )}
+
+            {/* Post Meta */}
+            <div className="mb-4 flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+              <time dateTime={date} className="font-medium">
+                {formatDate(date, locale)}
+              </time>
+              {tags && tags.length > 0 && (
+                <>
+                  <span className="h-1 w-1 rounded-full bg-gray-300 dark:bg-gray-600" />
+                  <div className="flex gap-2">
+                    {tags.slice(0, 2).map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-400"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    {tags.length > 2 && (
+                      <span className="text-xs text-gray-400">+{tags.length - 2}</span>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Post Title */}
+            <h3
+              className={`mb-3 font-semibold leading-snug text-gray-900 dark:text-white ${
+                isFirstPost ? 'text-2xl lg:text-3xl' : 'text-xl'
+              }`}
+            >
+              <Link
+                href={`/${locale}/blog/${slug}`}
+                className="transition-colors hover:text-[#0070f3]"
+              >
+                {title}
+              </Link>
+            </h3>
+
+            {/* Post Summary */}
+            {summary && (
+              <p
+                className={`mb-6 leading-relaxed text-gray-600 dark:text-gray-300 ${
+                  isFirstPost ? 'line-clamp-4 text-lg' : 'line-clamp-3'
+                }`}
+              >
+                {summary}
+              </p>
+            )}
+
+            {/* Read More Link */}
+            <div className="flex items-center">
+              <Link
+                href={`/${locale}/blog/${slug}`}
+                className="group/link inline-flex items-center text-sm font-medium text-[#0070f3] transition-colors hover:text-[#0070f3]/80"
+              >
+                {t('readMore')}
+                <svg
+                  className="ml-2 h-4 w-4 transition-transform group-hover/link:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </article>
         )
       })}
-    </ul>
+    </div>
   )
 }
 

@@ -1,38 +1,58 @@
 import ExperienceCard from '@/components/ExperienceCard'
 import { experience, ExperienceProps } from '@/data/experience'
-import Link from 'next/link'
 import React from 'react'
-import { DiNodejs, DiPython, DiPhp, DiLaravel, DiHtml5, DiCss3, DiJsBadge } from 'react-icons/di'
-import { SiNextdotjs } from 'react-icons/si'
 
 const Experience = () => {
   return (
-    <div className="divide-y divide-gray-200 dark:divide-gray-700">
-      <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-          Experiencia Profesional
-        </h1>
-        <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-          Un resumen de mi trayectoria y roles desempeñados.
-        </p>
+    <div className="mx-auto max-w-4xl">
+      {/* Header Section */}
+      <div className="mb-16 space-y-6">
+        <div className="space-y-4">
+          <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            Professional Experience
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400">
+            A timeline of my professional journey and key contributions across different roles and
+            organizations.
+          </p>
+        </div>
+
+        {/* Current year indicator */}
+        <div className="flex items-center gap-3">
+          <div className="flex h-6 w-6 items-center justify-center">
+            <div className="h-2 w-2 rounded-full bg-[#0070f3]" />
+          </div>
+          <span className="text-sm font-medium text-gray-900 dark:text-white">2025</span>
+          <div className="h-px flex-1 bg-gradient-to-r from-[#0070f3]/20 to-transparent" />
+        </div>
       </div>
-      <div className="container py-12">
-        <div className="-m-4 flex flex-wrap justify-center">
-          <section className="w-full p-4 md:w-2/3">
-            <ol className="relative border-l border-gray-200 dark:border-gray-700">
-              {experience.map((company) => (
-                <ExperienceCard
-                  key={company.title}
-                  title={company.title}
-                  description={company.description}
-                  job={company.job}
-                  link={company.link}
-                  date={company.date}
-                  skills={company.skills}
-                />
-              ))}
-            </ol>
-          </section>
+
+      {/* Timeline Section */}
+      <div className="relative">
+        {/* Main timeline container */}
+        <div className="space-y-0">
+          {experience.map((company, index) => (
+            <ExperienceCard
+              key={`${company.title}-${company.date}`}
+              title={company.title}
+              description={company.description}
+              job={company.job}
+              link={company.link}
+              date={company.date}
+              skills={company.skills}
+              isLast={index === experience.length - 1}
+            />
+          ))}
+        </div>
+
+        {/* Timeline end indicator */}
+        <div className="relative flex items-start gap-6">
+          <div className="relative z-10 flex h-8 w-8 items-center justify-center">
+            <div className="h-3 w-3 rounded-full bg-gray-200 ring-4 ring-white dark:bg-gray-700 dark:ring-gray-950" />
+          </div>
+          <div className="flex-1 pb-8">
+            <span className="text-sm text-gray-500 dark:text-gray-400">Beginning of journey</span>
+          </div>
         </div>
       </div>
     </div>

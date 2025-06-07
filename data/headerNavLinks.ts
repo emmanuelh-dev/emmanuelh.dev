@@ -4,6 +4,7 @@ const headerNavLinks: { href?: string; title: string }[] = [
   { href: '/tags', title: 'Tags' },
   {href: '/experience', title: 'Experience'},
   { href: '/projects', title: 'Projects' },
+  { href: '/social', title: 'Social' },
 ]
 
 export default headerNavLinks
