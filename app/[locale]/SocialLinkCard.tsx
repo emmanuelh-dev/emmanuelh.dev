@@ -1,7 +1,7 @@
 'use client'
 
 import { SocialLink } from '@/data/socialLinksData'
-import { LocaleTypes } from '../i18n/settings'
+import { LocaleTypes } from './i18n/settings'
 
 interface SocialLinkCardProps {
   link: SocialLink

@@ -56,6 +56,12 @@ export const socialLinksData: SocialLink[] = [
   
   // Projects & Shortcuts
   {
+    title: 'Proteus 8 professional',
+    description: 'My favorite circuit simulation software',
+    href: 'https://electronica.bysmax.com/software/proteus',
+    type: 'shortcut',
+  },
+  {
     title: 'Portfolio',
     description: 'My main portfolio website',
     href: 'https://emmanuelh.dev',
