@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Tag from '@/components/tag'
-import tagData from 'app/[locale]/tag-data.json'
+import tagData from 'app/[locale]/tag-data.json' with { type: 'json' }
 import { genPageMetadata } from 'app/[locale]/seo'
 import { createTranslation } from '../i18n/server'
 import { LocaleTypes } from '../i18n/settings'

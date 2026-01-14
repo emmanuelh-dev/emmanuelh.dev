@@ -9,7 +9,7 @@ import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/mdxcomponents/Link'
 import { sortByDate } from '@/components/util/sortByDate'
 import Pagination from './Pagination'
-import tagData from 'app/[locale]/tag-data.json'
+import tagData from 'app/[locale]/tag-data.json' with { type: 'json' }
 import { POSTS_PER_PAGE } from '@/data/postsPerPage'
 import { useTranslation } from 'app/[locale]/i18n/client'
 import { LocaleTypes } from 'app/[locale]/i18n/settings'
