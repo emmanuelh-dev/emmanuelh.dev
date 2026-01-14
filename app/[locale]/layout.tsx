@@ -29,7 +29,7 @@ const space_grotesk = Space_Grotesk({
 // This assumes you might want different titles/descriptions per language later
 // For now, it uses the main siteMetadata but includes the user's name and keywords
 const getLocaleMetadata = (locale: LocaleTypes) => {
-  const baseTitle = `${siteMetadata.title} | Emmanuel Diaz Leal Hernandez - Portfolio`
+  const baseTitle = `${siteMetadata.title}`
   const baseDescription = `Portfolio personal y blog de Emmanuel Diaz Leal Hernandez (emmanuelhdev, bysmax). ${siteMetadata.description}`
   // You can customize title/description per locale here if needed
   // Example: if (locale === 'en') { ... } else if (locale === 'es') { ... }
@@ -45,7 +45,7 @@ export async function generateMetadata({ params: { locale } }): Promise<Metadata
     metadataBase: new URL(siteMetadata.siteUrl),
     title: {
       default: localeTitle,
-      template: `%s | ${localeTitle}`, // Use the dynamic title here too
+      template: `%s | ${localeTitle}`,
     },
     description: localeDescription,
     keywords: [
@@ -64,7 +64,7 @@ export async function generateMetadata({ params: { locale } }): Promise<Metadata
       title: localeTitle,
       description: localeDescription,
       url: './',
-      siteName: localeTitle, // Use dynamic title
+      siteName: localeTitle,
       images: [siteMetadata.socialBanner],
       locale: locale,
       type: 'website',

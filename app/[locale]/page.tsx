@@ -14,10 +14,10 @@ export async function generateMetadata({ params: { locale } }: SocialPageProps):
   const { t } = await createTranslation(locale, 'social')
 
   return {
-    title: `${t('title')} - ${maintitle[locale]}`,
+    title: `${maintitle[locale]}`,
     description: t('description'),
     openGraph: {
-      title: `${t('title')} - ${maintitle[locale]}`,
+      title: `${maintitle[locale]}`,
       description: t('description'),
       url: `${siteMetadata.siteUrl}/${locale}/social`,
       siteName: maintitle[locale],

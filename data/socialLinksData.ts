@@ -83,7 +83,7 @@ export const socialLinksData: SocialLink[] = [
   {
     title: 'Contact Me',
     description: 'Get in touch for collaborations',
-    href: 'mailto:contact@emmanuelh.dev',
+    href: 'mailto:e80517@gmail.com',
     type: 'shortcut',
   },
   

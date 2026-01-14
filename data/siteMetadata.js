@@ -1,6 +1,6 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Emmanuel Diaz Leal Hernandez - Portfolio',
+  title: 'Emmanuel Diaz Leal Hernandez',
   author: 'Emmanuel Diaz Leal Hernandez',
   headerTitle: 'EmmanuelHDev',
   description: 'Portfolio personal y blog de Emmanuel Diaz Leal Hernandez (emmanuelhdev, bysmax). Explorando el desarrollo web, la tecnología y más.',
