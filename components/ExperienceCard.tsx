@@ -1,4 +1,4 @@
-import { ExperienceProps } from '@/data/experience'
+import { Experience, ExperienceProps } from '@/data/experience'
 import React from 'react'
 
 // Helper function to extract year from date string
@@ -43,7 +43,7 @@ const formatDateRange = (
   }
 }
 
-const ExperienceCard: React.FC<ExperienceProps & { isLast?: boolean }> = ({
+const ExperienceCard: React.FC<Experience & { isLast?: boolean }> = ({
   title,
   description,
   job,

@@ -2,7 +2,7 @@ import ExperienceCard from '@/components/ExperienceCard'
 import { experience, ExperienceProps } from '@/data/experience'
 import React from 'react'
 
-const Experience = () => {
+const Experience = ({locale}: {locale: string}) => {
   return (
     <div className="mx-auto max-w-4xl">
       {/* Header Section */}
@@ -31,7 +31,7 @@ const Experience = () => {
       <div className="relative">
         {/* Main timeline container */}
         <div className="space-y-0">
-          {experience.map((company, index) => (
+          {experience[locale].map((company, index) => (
             <ExperienceCard
               key={`${company.title}-${company.date}`}
               title={company.title}
@@ -40,7 +40,7 @@ const Experience = () => {
               link={company.link}
               date={company.date}
               skills={company.skills}
-              isLast={index === experience.length - 1}
+              isLast={index === experience[locale].length - 1}
             />
           ))}
         </div>
