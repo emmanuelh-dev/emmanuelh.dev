@@ -26,7 +26,8 @@ export function ChevronDownIcon({ className, ...props }: SVGProps<SVGSVGElement>
 
 const MobileNav = () => {
   const locale = useParams()?.locale as LocaleTypes
-  const { t } = useTranslation(locale, 'common')
+  const lang = locale || siteMetadata.language
+  const { t } = useTranslation(lang, 'common')
   const authors = allAuthors
     .filter((a) => a.language === locale)
     .sort((a, b) => (a.default === b.default ? 0 : a.default ? -1 : 1)) as Authors[]
@@ -88,7 +89,7 @@ const MobileNav = () => {
           </button>
         </div>
         <nav className="fixed mt-8 h-full">
-          {headerNavLinks.map((link) => (
+          {headerNavLinks[lang].map((link) => (
             <div key={link.title} className="px-12 py-4">
               <Link
                 href={`/${locale}${link.href}`}

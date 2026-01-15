@@ -15,7 +15,8 @@ import { motion } from 'framer-motion'
 
 const Header = () => {
   const locale = useParams()?.locale as LocaleTypes
-  const { t } = useTranslation(locale, 'common')
+  const lang = locale || siteMetadata.language
+  const { t } = useTranslation(lang, 'common')
   const pathname = usePathname()
 
   return (
@@ -38,7 +39,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
-          {headerNavLinks
+          {headerNavLinks[lang]
             .filter((link) => {
               return link.href !== '/'
             })
@@ -57,7 +58,7 @@ const Header = () => {
                         : 'text-gray-500 hover:text-neutral-900 dark:hover:text-gray-100'
                     } relative rounded-md px-2 py-1 font-medium transition-colors sm:block`}
                   >
-                    <span className="relative z-10">{t(`${link.title.toLowerCase()}`)}</span>
+                    <span className="relative z-10">{t(`${link.title}`)}</span>
                     {isSelected && (
                       <motion.span
                         layoutId="tab"
