@@ -1,8 +1,10 @@
 import ExperienceCard from '@/components/ExperienceCard'
 import { experience, ExperienceProps } from '@/data/experience'
+import { Locale } from 'next/dist/compiled/@vercel/og/satori'
 import React from 'react'
 
 const Experience = ({locale}: {locale: string}) => {
+  const lang = (locale as Locale) || 'es'
   return (
     <div className="mx-auto max-w-4xl">
       {/* Header Section */}
@@ -31,7 +33,7 @@ const Experience = ({locale}: {locale: string}) => {
       <div className="relative">
         {/* Main timeline container */}
         <div className="space-y-0">
-          {experience[locale].map((company, index) => (
+          {experience[lang].map((company, index) => (
             <ExperienceCard
               key={`${company.title}-${company.date}`}
               title={company.title}
@@ -40,7 +42,7 @@ const Experience = ({locale}: {locale: string}) => {
               link={company.link}
               date={company.date}
               skills={company.skills}
-              isLast={index === experience[locale].length - 1}
+              isLast={index === experience[lang].length - 1}
             />
           ))}
         </div>
