@@ -4,8 +4,14 @@ import React from 'react'
 import { createTranslation } from '../i18n/server'
 import { LocaleTypes } from '../i18n/settings'
 
-const Experience = async ({locale}: {locale: string}) => {
-  const lang = (locale as LocaleTypes) || 'es'
+interface PageProps {
+  params: {
+    locale: LocaleTypes;
+  };
+}
+const Experience = async ({params}: PageProps) => {
+  const {locale} = params
+  const lang = locale || 'es'
   const { t } = await createTranslation(lang, 'experience')
   
   return (

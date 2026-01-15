@@ -136,7 +136,7 @@ export const Blog = defineDocumentType(() => ({
     draft: { type: 'boolean' },
     summary: { type: 'string' },
     images: { type: 'json' },
-    authors: { type: 'list', of: { type: 'string' }, required: true },
+    authors: { type: 'list', of: { type: 'string' }, default: ['default'] },
     layout: { type: 'string' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
