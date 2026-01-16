@@ -14,6 +14,7 @@ import { dir } from 'i18next'
 import { LocaleTypes, locales } from './i18n/settings'
 import TwSizeIndicator from '@/components/helper/TwSizeIndicator'
 import { ThemeProviders } from './theme-providers'
+import { Analytics } from '@vercel/analytics/next';
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -135,6 +136,7 @@ export default function RootLayout({
             </div>
           </SectionContainer>
         </ThemeProviders>
+        <Analytics />
       </body>
     </html>
   )
