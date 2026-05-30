@@ -3,9 +3,9 @@ type Metadata = {
 }
 
 export const maintitle: Metadata = {
-  en: 'Emmanuel Diaz Leal Hernandez - Portfolio',
-  es: 'Emmanuel Diaz Leal Hernandez - Portafolio',
-  fr: 'Emmanuel Diaz Leal Hernandez - Portfolio',
+  en: 'Emanuel Diosdado Hernández | Software Developer',
+  es: 'Emanuel Diosdado Hernández | Software Developer',
+  fr: 'Emanuel Diosdado Hernández | Software Developer',
 }
 
 export const maindescription: Metadata = {

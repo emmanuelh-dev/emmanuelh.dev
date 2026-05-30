@@ -44,9 +44,9 @@ export default async function SocialPage({ params: { locale } }: SocialPageProps
           />
         </div>
         <h1 className="mb-2 text-xl font-semibold text-gray-900 dark:text-gray-100">
-          All My Links
+          Emanuel Diosdado Hernández
         </h1>
-        <p className="text-sm text-gray-600 dark:text-gray-400">Find me across the web</p>
+        <p className="text-sm text-gray-600 dark:text-gray-400">Software Developer | Emanuel H. Dev</p>
       </div>
 
       {shortcutLinks.length > 0 && (
