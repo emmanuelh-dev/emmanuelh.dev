@@ -1,96 +1,70 @@
 import { Metadata } from 'next'
 import { createTranslation } from './i18n/server'
 import { LocaleTypes } from './i18n/settings'
-import { socialLinksData, SocialLink } from '@/data/socialLinksData'
+import { socialLinksData } from '@/data/socialLinksData'
 import { maintitle } from '@/data/localeMetadata'
 import siteMetadata from '@/data/siteMetadata'
-import SocialLinkCard from './SocialLinkCard'
+import { experience } from '@/data/experience'
+import LandingClientPage from './LandingClientPage'
 
-interface SocialPageProps {
+interface PageProps {
   params: { locale: LocaleTypes }
 }
 
-export async function generateMetadata({ params: { locale } }: SocialPageProps): Promise<Metadata> {
-  const { t } = await createTranslation(locale, 'social')
+export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
+  const { t } = await createTranslation(locale, 'landing')
 
   return {
-    title: `${maintitle[locale]}`,
-    description: t('description'),
+    title: `${maintitle[locale]} | ${t('hero_tagline')}`,
+    description: t('hero_description'),
     openGraph: {
-      title: `${maintitle[locale]}`,
-      description: t('description'),
-      url: `${siteMetadata.siteUrl}/${locale}/social`,
+      title: `${maintitle[locale]} | ${t('hero_tagline')}`,
+      description: t('hero_description'),
+      url: `${siteMetadata.siteUrl}/${locale}`,
       siteName: maintitle[locale],
       type: 'website',
     },
   }
 }
 
-export default async function SocialPage({ params: { locale } }: SocialPageProps) {
-  const { t } = await createTranslation(locale, 'social')
+export default async function Page({ params: { locale } }: PageProps) {
+  const { t } = await createTranslation(locale, 'landing')
+  
+  // Get experience data for this locale
+  const experienceData = experience[locale] || experience['es']
 
-  const socialLinks = socialLinksData.filter((link) => link.type === 'social')
-  const projectLinks = socialLinksData.filter((link) => link.type === 'project')
-  const shortcutLinks = socialLinksData.filter((link) => link.type === 'shortcut')
-  const sponsoredLinks = socialLinksData.filter((link) => link.type === 'sponsored')
+  // Get project data (real ones)
+  const projects = {
+    es: [
+      { title: 'BysMax Electrónica', description: 'Un blog sobre electrónica y sistemas embebidos.', href: `https://electronica.bysmax.com/es` },
+      { title: 'Portfolio', description: 'Mi sitio web personal y portafolio profesional.', href: 'https://emmanuelh.dev' },
+      { title: 'Aplicaciones GPS', description: 'Herramientas avanzadas para profesionales de sistemas de geolocalización.', href: `https://electronica.bysmax.com/es/gps/` },
+      { title: 'Menús Digitales', description: 'Plataforma para crear menús digitales autogestionables para hostelería.', href: `https://menus.bysmax.com/menus` },
+      { title: 'Moteles', description: 'Sistema integral de administración y control para moteles.', href: `https://menus.bysmax.com/moteles` }
+    ],
+    en: [
+      { title: 'BysMax Electronics', description: 'A blog about electronics and embedded systems.', href: `https://electronica.bysmax.com/en` },
+      { title: 'Portfolio', description: 'My personal portfolio and professional showcase.', href: 'https://emmanuelh.dev' },
+      { title: 'GPS Applications', description: 'Advanced tools for GPS and geolocation professionals.', href: `https://electronica.bysmax.com/en/gps/` },
+      { title: 'Digital Menus', description: 'Easily create self-managed digital menus for your business.', href: `https://menus.bysmax.com/menus` },
+      { title: 'Motels', description: 'Comprehensive management and control system for motels.', href: `https://menus.bysmax.com/moteles` }
+    ]
+  }
+
+  const currentProjects = projects[locale] || projects['es']
+
+  // Social links
+  const socialLinks = socialLinksData.filter(
+    (link) => link.type === 'social' && (link.icon === 'github' || link.icon === 'linkedin')
+  )
+
   return (
-    <div className="mx-auto max-w-lg">
-      <div className="mb-12 text-center">
-        <div className="mb-6">
-          <img
-            src="/static/images/avatar.png"
-            alt="Emmanuel Diaz Leal Hernandez"
-            className="mx-auto h-16 w-16 rounded-lg border border-gray-200 object-cover dark:border-gray-800"
-          />
-        </div>
-        <h1 className="mb-2 text-3xl font-bold text-gray-900 dark:text-gray-100 sm:text-4xl">
-          Emmanuel Díaz Leal Hernández
-        </h1>
-        <p className="text-md text-gray-600 dark:text-gray-400 sm:text-lg">Full Stack Developer | Tech Innovator | Creator</p>
-      </div>
-
-      {shortcutLinks.length > 0 && (
-        <section className="mb-8">
-          <h2 className="mb-3 text-sm font-medium text-gray-900 dark:text-gray-100">Quick Links</h2>
-          <div className="space-y-2">
-            {shortcutLinks.map((link, index) => (
-              <SocialLinkCard key={index} link={link} locale={locale} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {socialLinks.length > 0 && (
-        <section className="mb-8">
-          <h2 className="mb-3 text-sm font-medium text-gray-900 dark:text-gray-100">
-            Social Media
-          </h2>
-          <div className="space-y-2">
-            {socialLinks.map((link, index) => (
-              <SocialLinkCard key={index} link={link} locale={locale} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {sponsoredLinks.length > 0 && (
-        <section className="mb-8">
-          <h2 className="mb-3 text-sm font-medium text-gray-900 dark:text-gray-100">
-            Recommendations
-          </h2>
-          <div className="space-y-2">
-            {sponsoredLinks.map((link, index) => (
-              <SocialLinkCard key={index} link={link} locale={locale} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      <div className="mt-8 border-t border-gray-200 pt-8 text-center dark:border-gray-800">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          © 2025 Emmanuel Diaz Leal Hernandez
-        </p>
-      </div>
-    </div>
+    <LandingClientPage
+      locale={locale}
+      t={t}
+      experienceData={experienceData}
+      projectsData={currentProjects}
+      socialLinks={socialLinks}
+    />
   )
 }
