@@ -5,6 +5,8 @@ import { createTranslation } from '../app/[locale]/i18n/server'
 import { LocaleTypes } from '../app/[locale]/i18n/settings'
 import PostList from './home/PostList'
 import Image from 'next/image'
+import ExperienceCard from '@/components/ExperienceCard'
+import { experience } from '@/data/experience'
 
 interface Post {
   slug: string
@@ -66,6 +68,18 @@ export default async function HomeLayout({ posts, params: { locale } }: HomeProp
               {t('aboutMe')}
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* Experience Section */}
+      <div className="mb-24 space-y-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+          Professional Experience
+        </h2>
+        <div className="space-y-2">
+          {experience[locale].map((exp, index) => (
+            <ExperienceCard key={index} {...exp} isLast={index === experience[locale].length - 1} />
+          ))}
         </div>
       </div>
 

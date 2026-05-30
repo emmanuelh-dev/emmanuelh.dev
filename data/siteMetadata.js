@@ -1,9 +1,9 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Emmanuel Diaz Leal Hernandez',
-  author: 'Emmanuel Diaz Leal Hernandez',
+  title: 'Emmanuel Díaz Leal Hernández',
+  author: 'Emmanuel Díaz Leal Hernández',
   headerTitle: 'EmmanuelHDev',
-  description: 'Portfolio personal y blog de Emmanuel Diaz Leal Hernandez (emmanuelhdev, bysmax). Explorando el desarrollo web, la tecnología y más.',
+  description: 'Portfolio personal y blog de Emmanuel Díaz Leal Hernández (emmanuelhdev, bysmax). Explorando el desarrollo web, la tecnología y más.',
   language: 'es', // Set default language to Spanish
   theme: 'system', // system, dark or light
   siteUrl: 'https://emmanuelh.dev', // Replace with actual domain if different
