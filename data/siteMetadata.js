@@ -21,7 +21,7 @@ const siteMetadata = {
   // threads: 'https://www.threads.net', // Uncomment and update if used
   // instagram: 'https://www.instagram.com', // Uncomment and update if used
   locale: 'es', // Set default locale to Spanish
-  keywords: ['Emmanuel Diaz Leal Hernandez', 'emmanuelhdev', 'bysmax', 'portfolio', 'blog', 'desarrollo web', 'software engineer', 'ingeniero de software', 'programacion', 'tecnologia'], // Add Spanish keywords
+  keywords: ['Emmanuel Díaz Leal Hernández', 'emmanuelhdev', 'bysmax', 'portfolio', 'blog', 'desarrollo web', 'software engineer', 'ingeniero de software', 'programacion', 'tecnologia'], // Add Spanish keywords
   multiauthors: false, // Set based on whether multiple authors contribute
   analytics: {
     // If you want to use an analytics provider you have to add it to the
