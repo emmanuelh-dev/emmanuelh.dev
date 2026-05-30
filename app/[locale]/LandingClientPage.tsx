@@ -6,7 +6,7 @@ import { FiGithub, FiLinkedin, FiMail, FiExternalLink, FiArrowRight, FiCpu, FiGl
 
 interface LandingClientPageProps {
   locale: 'en' | 'es'
-  t: (key: string) => string
+  dict: Record<string, string>
   experienceData: Array<{
     title: string
     job: string
@@ -30,7 +30,7 @@ interface LandingClientPageProps {
 
 export default function LandingClientPage({
   locale,
-  t,
+  dict,
   experienceData,
   projectsData,
   socialLinks,
@@ -77,29 +77,29 @@ export default function LandingClientPage({
           className="max-w-3xl space-y-6"
         >
           <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold tracking-wider text-blue-700 ring-1 ring-inset ring-blue-700/10 dark:bg-blue-950/30 dark:text-blue-400 dark:ring-blue-400/20">
-            {t('hero_tagline')}
+            {dict.hero_tagline}
           </span>
           <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-6xl sm:leading-none">
-            {t('hero_title_1')}{' '}
+            {dict.hero_title_1}{' '}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-emerald-500 bg-clip-text text-transparent dark:from-blue-400 dark:via-indigo-300 dark:to-emerald-400">
-              {t('hero_title_2')}
+              {dict.hero_title_2}
             </span>
           </h1>
           <p className="max-w-[60ch] text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-            {t('hero_description')}
+            {dict.hero_description}
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-lg bg-gray-950 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-950 dark:bg-white dark:text-gray-950 dark:hover:bg-gray-100"
+              className="inline-flex items-center justify-center rounded-lg bg-gray-950 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-955 dark:bg-white dark:text-gray-955 dark:hover:bg-gray-100"
             >
-              {t('cta_contact')}
+              {dict.cta_contact}
             </a>
             <a
               href="#projects"
               className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-950 hover:bg-gray-50 dark:border-gray-800 dark:text-white dark:hover:bg-gray-900"
             >
-              {t('cta_projects')}
+              {dict.cta_projects}
               <FiArrowRight className="ml-2 h-4 w-4" />
             </a>
           </div>
@@ -110,7 +110,7 @@ export default function LandingClientPage({
       <section className="space-y-8">
         <div className="space-y-2">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
-            {t('section_focus_title')}
+            {dict.section_focus_title}
           </h2>
           <div className="h-1 w-20 bg-gradient-to-r from-blue-600 to-indigo-500" />
         </div>
@@ -133,10 +133,10 @@ export default function LandingClientPage({
                 {focusIcons.fullstack}
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                {t('focus_fullstack_title')}
+                {dict.focus_fullstack_title}
               </h3>
               <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                {t('focus_fullstack_desc')}
+                {dict.focus_fullstack_desc}
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
@@ -159,10 +159,10 @@ export default function LandingClientPage({
                 {focusIcons.iot}
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                {t('focus_iot_title')}
+                {dict.focus_iot_title}
               </h3>
               <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                {t('focus_iot_desc')}
+                {dict.focus_iot_desc}
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
@@ -185,10 +185,10 @@ export default function LandingClientPage({
                 {focusIcons.geo}
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                {t('focus_geo_title')}
+                {dict.focus_geo_title}
               </h3>
               <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                {t('focus_geo_desc')}
+                {dict.focus_geo_desc}
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
@@ -206,7 +206,7 @@ export default function LandingClientPage({
       <section id="projects" className="space-y-8 scroll-mt-20">
         <div className="space-y-2">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
-            {t('section_projects_title')}
+            {dict.section_projects_title}
           </h2>
           <div className="h-1 w-20 bg-gradient-to-r from-emerald-600 to-teal-500" />
         </div>
@@ -250,7 +250,7 @@ export default function LandingClientPage({
       <section className="space-y-8">
         <div className="space-y-2">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
-            {t('section_experience_title')}
+            {dict.section_experience_title}
           </h2>
           <div className="h-1 w-20 bg-gradient-to-r from-indigo-600 to-purple-500" />
         </div>
@@ -304,10 +304,10 @@ export default function LandingClientPage({
       <section id="contact" className="rounded-2xl bg-gray-50 p-8 dark:bg-zinc-900/20 border border-gray-100 dark:border-gray-900 space-y-8 scroll-mt-20">
         <div className="max-w-2xl space-y-4">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
-            {t('section_contact_title')}
+            {dict.section_contact_title}
           </h2>
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-            {t('section_contact_desc')}
+            {dict.section_contact_desc}
           </p>
           <div className="pt-2">
             <a
@@ -322,7 +322,7 @@ export default function LandingClientPage({
 
         <div className="border-t border-gray-200/60 pt-8 dark:border-gray-800/60">
           <h3 className="text-sm font-semibold tracking-wider text-gray-500 uppercase mb-4">
-            {t('social_links_title')}
+            {dict.social_links_title}
           </h3>
           <div className="flex flex-wrap gap-4">
             {socialLinks.map((link, index) => {
