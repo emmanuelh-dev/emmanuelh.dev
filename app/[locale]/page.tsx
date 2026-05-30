@@ -43,10 +43,10 @@ export default async function SocialPage({ params: { locale } }: SocialPageProps
             className="mx-auto h-16 w-16 rounded-lg border border-gray-200 object-cover dark:border-gray-800"
           />
         </div>
-        <h1 className="mb-2 text-xl font-semibold text-gray-900 dark:text-gray-100">
-          Emanuel Diosdado Hernández
+        <h1 className="mb-2 text-3xl font-bold text-gray-900 dark:text-gray-100 sm:text-4xl">
+          Emmanuel Díaz Leal Hernández
         </h1>
-        <p className="text-sm text-gray-600 dark:text-gray-400">Software Developer | Emanuel H. Dev</p>
+        <p className="text-md text-gray-600 dark:text-gray-400 sm:text-lg">Full Stack Developer | Tech Innovator | Creator</p>
       </div>
 
       {shortcutLinks.length > 0 && (
