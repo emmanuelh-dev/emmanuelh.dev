@@ -91,7 +91,7 @@ export default function LandingClientPage({
           <div className="flex flex-wrap gap-4 pt-4">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-lg bg-gray-950 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-955 dark:bg-white dark:text-gray-955 dark:hover:bg-gray-100"
+              className="inline-flex items-center justify-center rounded-lg bg-gray-950 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-950 dark:bg-white dark:text-gray-950 dark:hover:bg-gray-100"
             >
               {dict.cta_contact}
             </a>
