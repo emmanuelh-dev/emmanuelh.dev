@@ -166,7 +166,7 @@ export default function LandingClientPage({
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
-              {['Proteus', 'C/C++', 'Firmware', 'IoT', 'Hardware Design'].map((tech) => (
+              {['Go', 'Goroutines', 'Channels', 'gRPC', 'High Performance'].map((tech) => (
                 <span key={tech} className="rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700 dark:bg-zinc-800 dark:text-gray-300">
                   {tech}
                 </span>
@@ -192,7 +192,7 @@ export default function LandingClientPage({
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
-              {['WMS', 'Google Maps API', 'GPS Systems', 'Real-time Tracking'].map((tech) => (
+              {['WMS', 'Google Maps API', 'Geolocation APIs', 'Real-time Tracking'].map((tech) => (
                 <span key={tech} className="rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700 dark:bg-zinc-800 dark:text-gray-300">
                   {tech}
                 </span>
